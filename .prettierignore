@@ -1,0 +1,28 @@
+# Ignore artifacts:
+build
+coverage
+
+# Ignore all HTML files:
+*.html
+
+# Ignore configs
+.husky
+.jest
+.storybook
+coverage
+.commitlintrc.ts
+.editorconfig
+.eslintrc
+.gitignore
+.prettierignore
+.prettierrc
+babel.config.json
+jest.config.ts
+README.md
+tsconfig.json
+tsconfig.node.json
+vite.config.json
+yarn.lock
+
+# Ignore node_modules
+node_modules
