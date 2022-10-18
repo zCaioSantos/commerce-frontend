@@ -22,6 +22,7 @@
   "@typescript-eslint/eslint-plugin": "^5.40.1",
   "@typescript-eslint/parser": "^5.40.1",
   "@vitejs/plugin-react": "^2.1.0",
+  "@types/styled-components": "^5.1.26",
   "cross-env": "^7.0.3",
   "eslint": "^8.25.0",
   "eslint-plugin-react": "^7.31.10",
