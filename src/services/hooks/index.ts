@@ -1,0 +1,1 @@
+export { useActiveMenuData } from './useActiveMenu';
