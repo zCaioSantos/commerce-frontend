@@ -4,8 +4,10 @@ import { Dummy } from '../pages/Dummy';
 export function Routers() {
  return (
   <Routes>
-   <Route path="/tests" element={<Dummy />} />
-   <Route path="/sair" element={<h1>Sair</h1>} />
+   <Route path="/home" element={<Dummy />} />
+   <Route path="/users" element={<Dummy />} />
+   <Route path="/products" element={<Dummy />} />
+   <Route path="/logout" element={<h1>logout</h1>} />
   </Routes>
  );
 }
