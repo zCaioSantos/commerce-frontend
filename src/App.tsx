@@ -1,4 +1,6 @@
+import { Routers } from './router';
+
 export function App() {
- return <h1>Test</h1>;
+ return <Routers />;
 }
 
