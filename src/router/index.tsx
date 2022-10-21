@@ -1,5 +1,4 @@
 import { Routes, Route } from 'react-router-dom';
-import {} from '../pages';
 import { Dummy } from '../pages/Dummy';
 
 export function Routers() {

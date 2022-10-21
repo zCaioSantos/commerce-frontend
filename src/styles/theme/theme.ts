@@ -4,7 +4,7 @@ export const light: DefaultTheme = {
  name: 'light',
  colors: {
   background: '#fafafa',
-  text: '#333',
+  text: '#464646',
  },
 };
 
