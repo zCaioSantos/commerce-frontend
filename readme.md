@@ -152,20 +152,3 @@ Open <http://localhost:5173/> to view in your browser.
 ### `yarn build`
 
 Run the application build process. With this the code is prepared to be used in production.
-
-### `yarn sb`
-
-Run the Storybook application.
-Open <http://localhost:6006/> to view in your browser.
-
-### `yarn test`
-
-Run tests written in jest once.
-
-### `yarn lint`
-
-Run the lint process and fix errors in all files arranged in the settings.
-
-### `yarn prettier-lint`
-
-Runs the prettier process and corrects code styling errors in all files arranged in the settings.
