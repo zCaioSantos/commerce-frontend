@@ -1,3 +1,9 @@
+import { TopHeader } from '../../components/LandingPage/TopHeader';
+
 export function Layout() {
- return <h1>test</h1>;
+ return (
+  <div>
+   <TopHeader />
+  </div>
+ );
 }
