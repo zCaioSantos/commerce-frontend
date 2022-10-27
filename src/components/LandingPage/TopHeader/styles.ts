@@ -17,5 +17,5 @@ font-size: 16px;
 width: 215px;
 height: 20px;
 color: white;
-margin: 20px;
+margin: 20px 125px 20px 20px;
 `
