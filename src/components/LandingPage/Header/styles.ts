@@ -5,7 +5,7 @@ export const Container = styled.div`
  flex-direction: row;
  justify-content: center;
  width: 100%;
- height: 122px;
+ height: 120px;
 `;
 
 export const Nav = styled.div`
@@ -30,6 +30,7 @@ export const DIV = styled.div`
  a {
   text-decoration: none;
   color: black;
+  font-size: 14px;
  }
 `;
 export const Icon = styled.div`
@@ -42,6 +43,6 @@ export const Icon = styled.div`
 `;
 
 export const Logo = styled.img`
- width: 72px;
- height: 72px;
+ width: 62px;
+ height: 62px;
 `;

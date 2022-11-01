@@ -25,8 +25,8 @@ export function Layout() {
      </a>
     </DIV>
     <Icon>
-     <BsSearch size={30} />
-     <BsCart size={30} />
+     <BsSearch size={25} />
+     <BsCart size={25} />
     </Icon>
    </Nav>
   </Container>

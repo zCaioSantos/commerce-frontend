@@ -13,7 +13,7 @@ export const Div = styled.div`
 display: flex;
 flex-direction: row;
 justify-content: space-evenly;
-font-size: 16px;
+font-size: 14px;
 width: 215px;
 height: 20px;
 color: white;
