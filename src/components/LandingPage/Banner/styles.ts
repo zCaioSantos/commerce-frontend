@@ -1,29 +1,43 @@
-import styled from "styled-components";
+import styled from 'styled-components';
+import { Banner } from '../../../assets/images';
 
-export const Sec = styled.div`
-  width: 100%;
-  height: 650px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-    
-  small{
-    opacity: 50%;
-  }
-`
+export const ContainerBanner = styled.div`
+ width: 100%;
+ height: 650px;
 
-export const Ban = styled.img`
-  width: 100%;
-  height: 100%;
-`
+ padding: 9.5rem 7.8125rem;
 
+ display: flex;
+ flex-direction: column;
+ gap: 0.125rem;
 
-export const Art = styled.div`
-  color: #FFF;
-  height: 86px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  margin: 0 5rem;
-  position: absolute;
-`
+ background-image: url(${Banner});
+ background-position: center;
+ background-size: cover;
+
+ font-family: 'Lato';
+ color: white;
+
+ h1 {
+  font-size: 3rem;
+  font-weight: 500;
+  margin: 0;
+ }
+
+ h2 {
+  font-size: 2.25rem;
+  font-weight: 400;
+  margin: 0;
+ }
+
+ h3 {
+  font-size: 2rem;
+  font-weight: 400;
+  margin: 0;
+ }
+`;
+
+export const MaxButton = styled.div`
+ margin-top: 4.5rem;
+ max-width: 18.125rem;
+`;

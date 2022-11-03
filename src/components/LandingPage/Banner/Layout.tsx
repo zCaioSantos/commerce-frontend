@@ -1,16 +1,24 @@
-import { Banner } from "../../../assets/images"
-import { Sec, Art, Ban } from "../Banner/styles";
+import { useNavigate } from 'react-router-dom';
+import { Button } from '../../Button';
+import { ContainerBanner, MaxButton } from '../Banner/styles';
+import { mocks } from './mocks';
 
-export function Layout(){
-  return(
-    <Sec>
-      <Ban src={Banner}>
-      </Ban>
-        <Art>
-          <span>Conheça nossos exclusivos importados!</span>
-          <h2>Aproveite nossas ofertas de novembro black!</h2>
-          <small>Valores únicos para esse momento de copa</small>
-        </Art>
-    </Sec>
-  );
+export function Layout() {
+ const navigate = useNavigate();
+ return (
+  <ContainerBanner>
+   <h2>{mocks.subtitle}</h2>
+   <h1>{mocks.title}</h1>
+   <h3>{mocks.message}</h3>
+   <MaxButton>
+    <Button
+     data={{
+      title: 'Saiba mais',
+      type: 'button',
+      onClick: () => navigate('/produtos'),
+     }}
+    />
+   </MaxButton>
+  </ContainerBanner>
+ );
 }
