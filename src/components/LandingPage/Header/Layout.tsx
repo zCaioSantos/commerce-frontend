@@ -1,4 +1,4 @@
-import { Container, DIV, Nav, Logo, Icon } from './styles';
+import { Container, DIV, Nav, GroupIcon, Logo } from './styles';
 import { BsSearch, BsCart } from 'react-icons/bs';
 import { LogoCommerceSimples } from '../../../assets/images';
 
@@ -17,17 +17,11 @@ export function Layout() {
      <a href="/">
       <p>PEDIDOS</p>
      </a>
-     <a href="/">
-      <p>OFERTAS</p>
-     </a>
-     <a href="/">
-      <p>MARCAS</p>
-     </a>
     </DIV>
-    <Icon>
-     <BsSearch size={25} />
-     <BsCart size={25} />
-    </Icon>
+    <GroupIcon>
+     <BsSearch size={30} />
+     <BsCart size={30} />
+    </GroupIcon>
    </Nav>
   </Container>
  );

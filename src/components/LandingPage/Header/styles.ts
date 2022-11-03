@@ -2,47 +2,42 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
  display: flex;
- flex-direction: row;
+ align-items: center;
  justify-content: center;
+
  width: 100%;
- height: 120px;
+ height: 7rem;
+
+ padding: 0 7.8125rem;
 `;
 
 export const Nav = styled.div`
  width: 100%;
- height: 72px;
- margin: 24px 12px;
+
  display: flex;
- flex-direction: row;
- justify-content: space-evenly;
+ justify-content: space-between;
 `;
 
-export const DIV = styled.div`
+export const DIV = styled.nav`
  display: flex;
- flex-direction: row;
- justify-content: space-evenly;
- width: 885px;
- height: 24px;
- margin: 24px 0px;
- padding: 0;
  align-items: center;
+ gap: 7rem;
 
  a {
   text-decoration: none;
-  color: black;
-  font-size: 14px;
+  color: #464646;
+  font-weight: bold;
+  font-size: 1rem;
  }
 `;
-export const Icon = styled.div`
+
+export const GroupIcon = styled.div`
  display: flex;
- flex-direction: row;
- justify-content: space-between;
- width: 112px;
- height: 40px;
- margin: 16px 0px;
+ align-items: center;
+ gap: 2rem;
 `;
 
 export const Logo = styled.img`
- width: 62px;
- height: 62px;
+ width: 4.5rem;
+ height: 4.5rem;
 `;
