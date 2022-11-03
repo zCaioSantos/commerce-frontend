@@ -1,5 +1,7 @@
-import { Layout } from "./Layout";
+import { useData } from './data';
+import { Layout } from './Layout';
 
 export function Controller() {
- return <Layout />;
+ const { data } = useData();
+ return <Layout data={data} />;
 }

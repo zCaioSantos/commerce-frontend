@@ -1,21 +1,37 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Container = styled.nav`
+ display: flex;
+ align-items: center;
+ justify-content: flex-end;
+
+ padding: 0 7.8125rem;
+
  background-color: black;
  width: 100%;
- height: 56px;
- display: flex;
- flex-direction: row;
- justify-content: right;
-`
+ height: 3.5rem;
 
-export const Div = styled.div`
-display: flex;
-flex-direction: row;
-justify-content: space-evenly;
-font-size: 14px;
-width: 215px;
-height: 20px;
-color: white;
-margin: 20px 125px 20px 20px;
-`
+ display: flex;
+ justify-content: flex-end;
+`;
+
+export const Navgation = styled.ul`
+ display: flex;
+ justify-content: flex-end;
+ gap: 1.375rem;
+
+ list-style: none;
+
+ font-size: 16px;
+ color: white;
+
+ li {
+  cursor: pointer;
+
+  transition: color 0.3s ease;
+  &:hover,
+  &:active {
+   color: #f79f7c;
+  }
+ }
+`;

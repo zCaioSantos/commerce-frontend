@@ -1,11 +1,16 @@
-import { Container, Div } from './styles';
+import { useNavigate } from 'react-router-dom';
+import { Container, Navgation } from './styles';
+import { LayoutProps } from './types';
 
-export function Layout() {
- return <Container>
-  <Div>
-    <p>Entrar</p>
-    <p>Cadastre-se</p>
-    <p>Ajuda</p> 
-  </Div>
- </Container>; 
+export function Layout({ data }: LayoutProps) {
+ const navigate = useNavigate();
+ return (
+  <Container>
+   <Navgation>
+    {data.map((link) => (
+     <li onClick={() => navigate(link.route)}>{link.title}</li>
+    ))}
+   </Navgation>
+  </Container>
+ );
 }
