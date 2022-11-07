@@ -1,5 +1,4 @@
 import { useNavigate } from 'react-router-dom';
-import { mocks } from './mocks';
 import {
  Container,
  Carrossel,
