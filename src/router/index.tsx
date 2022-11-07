@@ -13,6 +13,7 @@ export function Routers() {
     </Route>
     <Route path="logout" element={<h1>logout</h1>} />
    </Route>
+   // TODO: Fazer rotas privatas
    <Route path="/dashboard">
     <Route path="users" element={<Dummy />} />
    </Route>
