@@ -7,8 +7,10 @@ export function Layout({ data }: LayoutProps) {
  return (
   <Container>
    <Navgation>
-    {data.map((link) => (
-     <li onClick={() => navigate(link.route)}>{link.title}</li>
+    {data.map((link, index) => (
+     <li key={index} onClick={() => navigate(link.route)}>
+      {link.title}
+     </li>
     ))}
    </Navgation>
   </Container>
