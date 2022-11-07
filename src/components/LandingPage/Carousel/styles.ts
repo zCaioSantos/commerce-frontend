@@ -15,11 +15,11 @@ export const Carrossel = styled.div`
 
 export const Item = styled.div`
  margin: 5rem 1rem;
+ cursor: pointer;
 `;
 
 export const Capa = styled.img`
- width: 420px;
- height: 400px;
+ object-fit: cover;
 `;
 export const Info = styled.div`
  width: auto;
