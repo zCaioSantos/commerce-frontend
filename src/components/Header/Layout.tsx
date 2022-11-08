@@ -2,7 +2,7 @@ import { Button } from '../Button';
 import { Container } from './styles';
 import { LayoutProps } from './types';
 
-export function Layout({ data }: LayoutProps) {
+export function Layout({ data, onClick }: LayoutProps) {
  return (
   <Container>
    <div className="title">
@@ -15,7 +15,7 @@ export function Layout({ data }: LayoutProps) {
      data={{
       title: `Novo ${data.pageName}`,
       type: 'button',
-      onClick: () => console.log('Clicou'),
+      onClick: onClick,
      }}
     />
    </div>

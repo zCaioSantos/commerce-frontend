@@ -1,6 +1,10 @@
 import { Routers } from './router';
+import { Container } from './styles.app';
 
 export function App() {
- return <Routers />;
+ return (
+  <Container>
+   <Routers />
+  </Container>
+ );
 }
-
