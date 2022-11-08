@@ -1,6 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 import { Dummy } from '../pages/Dummy';
 import { LandingPage } from '../pages/LandingPage';
+import { Users } from '../pages/Users';
 
 export function Routers() {
  return (
@@ -15,7 +16,7 @@ export function Routers() {
    </Route>
    // TODO: Fazer rotas privatas
    <Route path="/dashboard">
-    <Route path="users" element={<Dummy />} />
+    <Route path="users" element={<Users />} />
    </Route>
    <Route path="/*" element={<h1>Pagina nao existe</h1>} />
   </Routes>
