@@ -5,7 +5,7 @@ import { LayoutProps } from './types';
 export function Layout({ data }: LayoutProps) {
  return (
   <Container>
-   <Table />
+   <FormAdmin />
   </Container>
  );
 }
