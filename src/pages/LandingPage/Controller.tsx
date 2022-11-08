@@ -1,7 +1,8 @@
 import { Layout } from './Layout';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { ProdutoProps, ResponseProps } from './types';
+import { ProdutoProps } from './types';
+import { ResponseProps } from '../../services/types/Response';
 
 export function Controller() {
  const [data, setData] = useState<ProdutoProps[]>();
