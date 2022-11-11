@@ -7,12 +7,18 @@ import { Layout } from './Layout';
 export function Controller() {
  const columns = useColumns();
  const [data, setData] = useState<ResponseProps>();
+ const [loading, setLoading] = useState(false);
 
  const response = () => {
+  setLoading(true);
   axios
    .get<ResponseProps>('http://localhost:5000/users/admins')
-   .then((response) => {
-    setData(response.data);
+   .then((responseData) => {
+    setData(responseData.data);
+   })
+   .catch((err) => console.log(err))
+   .finally(() => {
+    setLoading(false);
    });
  };
 
@@ -37,6 +43,7 @@ export function Controller() {
    data={{
     columns: columns.data.columns,
     response: data,
+    loading,
     onEdit: onEditAdmin,
     onDelete: onDeleteAdmin,
     onCreate: onCreateAdmin,
