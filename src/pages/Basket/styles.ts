@@ -13,3 +13,9 @@ export const InfoCarro = styled.div`
   font-size: 20px;
  }
 `;
+
+export const Content = styled.div`
+ display: flex;
+ width: 100%;
+ justify-content: space-around;
+`
