@@ -5,6 +5,7 @@ export interface ControllerProps {
  data: {
   columns: Columns[];
   response?: ResponseProps;
+  loading?: boolean;
   onEdit?: (id: string) => void;
   onDelete?: (id: string) => void;
  };

@@ -7,17 +7,20 @@ export function Layout({ data }: LayoutProps) {
  return (
   <Container>
    <TableHeader data={data.columns} />
-   {data.response?.content.map((item, index) => (
-    <TableRow
-     key={index}
-     data={{
-      columns: data.columns,
-      content: item,
-      onDelete: data.onDelete,
-      onEdit: data.onEdit,
-     }}
-    />
-   ))}
+   {data.loading && <p>Loading...</p>}
+
+   {!data.loading &&
+    data.response?.content.map((item, index) => (
+     <TableRow
+      key={index}
+      data={{
+       columns: data.columns,
+       content: item,
+       onDelete: data.onDelete,
+       onEdit: data.onEdit,
+      }}
+     />
+    ))}
   </Container>
  );
 }

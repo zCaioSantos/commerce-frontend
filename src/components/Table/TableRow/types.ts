@@ -11,4 +11,4 @@ export interface ControllerProps {
 
 export type LayoutProps = ControllerProps;
 
-export type DataList<T = unknown | undefined> = T;
+export type DataList<T = any | undefined> = T;
