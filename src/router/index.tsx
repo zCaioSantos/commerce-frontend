@@ -1,4 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
+import { Basket } from '../pages/Basket';
 import { Dummy } from '../pages/Dummy';
 import { LandingPage } from '../pages/LandingPage';
 
@@ -7,6 +8,7 @@ export function Routers() {
   <Routes>
    <Route path="/">
     <Route index element={<LandingPage />} />
+    <Route path="basket" element={<h1><Basket /></h1>} />
     <Route path="produtos">
      <Route index element={<h1>Produtos</h1>} />
      <Route path=":id" element={<h1>Detalhes do Produtos</h1>} />
