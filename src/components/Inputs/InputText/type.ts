@@ -1,8 +1,9 @@
 export interface ControllerProps {
  data: {
-  title?: String;
+  title?: string;
   placeholder?: string;
   type: InputTypes;
+  getInputValue: (e: any) => void;
  };
 }
 
