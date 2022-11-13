@@ -5,7 +5,7 @@ export interface ControlerProps {
 export type LayoutProps = ControlerProps;
 
 export type ProdutoProps = {
- id: number;
+ produto_id: number;
  nome: string;
  descricao: string;
  avaliacao: number;

@@ -1,18 +1,24 @@
+import { BarLoader } from 'react-spinners';
 import { Header } from '../../components/LandingPage/Header';
 import { TopHeader } from '../../components/LandingPage/TopHeader';
-import { Banner } from '../../components/LandingPage/Banner';
 import { Footer } from '../../components/LandingPage/Footer';
 import { Carousel } from '../../components/LandingPage/Carousel';
 import { LayoutProps } from './types';
+import { Container, Content } from './styles';
 
 export function Layout({ data }: LayoutProps) {
  return (
-  <div>
+  <Container>
    <TopHeader />
    <Header />
-   <Banner />
-   <Carousel data={data} />
+   <Content>
+    {!data.isLoading || data.isFetched ? (
+     <Carousel data={data?.response?.content} />
+    ) : (
+     <BarLoader width={500} />
+    )}
+   </Content>
    <Footer />
-  </div>
+  </Container>
  );
 }

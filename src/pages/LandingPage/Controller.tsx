@@ -1,23 +1,21 @@
-import { Layout } from './Layout';
 import axios from 'axios';
-import { useEffect, useState } from 'react';
-import { ProdutoProps, ResponseProps } from './types';
+import { useQuery } from 'react-query';
+import { ResponseProps } from '../../services/types/ResponseProps';
+import { Layout } from './Layout';
 
 export function Controller() {
- const [data, setData] = useState<ProdutoProps[]>();
+ const { data, isFetched, isLoading } = useQuery(['getProducts'], () => {
+  const response = axios.get<ResponseProps>('http://localhost:5000/produto/');
+  return response;
+ });
 
- const response = () => {
-  axios
-   .get<ResponseProps>('http://localhost:5000/produto/')
-   .then((response) => {
-    console.log(response.data.content);
-    setData(response.data.content);
-   });
- };
-
- useEffect(() => {
-  response();
- }, []);
-
- return <Layout data={data} />;
+ return (
+  <Layout
+   data={{
+    response: data?.data,
+    isLoading,
+    isFetched,
+   }}
+  />
+ );
 }
