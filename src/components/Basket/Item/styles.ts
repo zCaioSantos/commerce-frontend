@@ -1,85 +1,81 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
- display: flex;
- margin: 2rem;
-
-`;
-
-export const Product = styled.div`
- display: flex;
-`
-
-export const Imagem = styled.img`
- width: 300px;
+export const Container = styled.li`
+ width: 100%;
  height: 200px;
- object-fit: cover;
-`
 
-export const Infos = styled.div`
- display: flex;
-
- h5{
-  margin-bottom: 22px;
- }
- small{
-  font-size: 16px;
-  font-weight: lighter;
-  color: #827979;  
- }
-
-`;
-
-export const Desc = styled.div`
- display: flex;
- height: 138px;
- width: 758px;
- flex-direction: column;
- margin: 1rem;
- `
-
-export const Prices = styled.div`
- display: flex;
- height: 200px;
- flex-direction: column;
- justify-content: space-around;
- align-items: flex-end;
- padding: 1rem 0;
- h5{
-  color: #F79F7C;
- }
-`
-export const ItensQtd = styled.div`
- display: flex;
- align-items: center;
- p{
-  font-size: 20px;
- }
-`
-
-export const Qtd = styled.div`
- width: 56px;
- height: 45px;
  display: flex;
  align-items: center;
  justify-content: space-between;
- 
-`
 
-export const Remove = styled.div`
+ overflow: hidden;
+`;
+
+export const Info = styled.div`
+ height: 100%;
+
  display: flex;
- width: 92px;
- justify-content: space-between;
- align-items: center;
- color: #FF0000;
- margin: 0 1rem;
- p{
-  font-size: 16px;
+ gap: 1rem;
+
+ img {
+  height: 100%;
  }
-`
+`;
 
+export const Description = styled.div`
+ display: flex;
+ flex-direction: column;
+ gap: 0.5rem;
 
+ font-size: 1.75rem;
+ small {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
 
+  font-size: 1rem;
+  font-weight: 400;
+ }
+`;
 
+export const DeleteButton = styled.button`
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ gap: 0.5rem;
+ padding: 0.875rem 2rem;
 
+ width: 100%;
+ height: 50px;
 
+ background: transparent;
+
+ color: #f79f7c;
+ font-size: 1rem;
+ font-weight: 600;
+
+ transition: filter 0.3s ease;
+ &:hover,
+ &:active {
+  cursor: pointer;
+ }
+`;
+
+export const Amount = styled.div`
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ gap: 0.5rem;
+ width: 10.375rem;
+
+ font-size: 1.5625rem;
+
+ > input[type='number'] {
+  background-color: transparent;
+  width: 100%;
+  text-align: center;
+  &::placeholder {
+   text-align: center;
+  }
+ }
+`;

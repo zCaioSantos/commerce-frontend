@@ -9,13 +9,15 @@ export const InfoCarro = styled.div`
  display: flex;
  justify-content: space-between;
  align-items: center;
- h3{
+ h3 {
   font-size: 20px;
  }
 `;
 
-export const Content = styled.div`
+export const Content = styled.ul`
  display: flex;
+ flex-direction: column;
+ gap: 2rem;
  width: 100%;
  justify-content: space-around;
-`
+`;
