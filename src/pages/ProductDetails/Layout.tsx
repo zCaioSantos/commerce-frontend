@@ -1,23 +1,33 @@
-import { Carousel } from "../../components/LandingPage/Carousel";
-import { Footer } from "../../components/LandingPage/Footer";
-import { Header } from "../../components/LandingPage/Header";
-import { TopHeader } from "../../components/LandingPage/TopHeader";
-import { Detalis } from "../../components/ProductDetails/Details";
-import { MiniCarrousel } from "../../components/ProductDetails/MiniCarrousel";
-import { Org } from "./styles";
+import { BarLoader } from 'react-spinners';
+import { Footer } from '../../components/LandingPage/Footer';
+import { Header } from '../../components/LandingPage/Header';
+import { TopHeader } from '../../components/LandingPage/TopHeader';
+import { Detalis } from '../../components/ProductDetails/Details';
+import { MiniCarrousel } from '../../components/ProductDetails/MiniCarrousel';
+import { Container, Content, Org } from './styles';
+import { LayoutProps } from './type';
 
-export function Layout() {
+export function Layout({ data }: LayoutProps) {
  return (
-  <div>
-   <TopHeader/>
+  <Container>
+   <TopHeader />
    <Header />
-   <Org>
-    <MiniCarrousel/>
-    <Detalis/>
-   </Org>
-   <h2>Outros produtos</h2>
-   <Carousel/>
-   <Footer/>
-  </div>
+   <Content>
+    {!data.isLoading || data.isFetched ? (
+     <Org>
+      <MiniCarrousel />
+      <Detalis
+       data={{
+        content: data.response,
+        onClick: undefined,
+       }}
+      />
+     </Org>
+    ) : (
+     <BarLoader />
+    )}
+   </Content>
+   <Footer />
+  </Container>
  );
 }

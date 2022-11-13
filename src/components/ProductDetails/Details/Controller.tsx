@@ -1,4 +1,6 @@
 import { Layout } from './Layout';
-export function Controller() {
- return <Layout />;
+import { ControllerProps } from './type';
+
+export function Controller({ data }: ControllerProps) {
+ return <Layout data={data} />;
 }
