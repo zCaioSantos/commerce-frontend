@@ -24,10 +24,11 @@ export const DIV = styled.nav`
  gap: 7rem;
 
  a {
+  text-transform: uppercase;
+  font-size: 1rem;
   text-decoration: none;
   color: #464646;
   font-weight: bold;
-  font-size: 1rem;
  }
 `;
 

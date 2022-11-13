@@ -1,5 +1,6 @@
-import { Container, DIV, Nav, GroupIcon, Logo } from './styles';
 import { BsSearch, BsCart } from 'react-icons/bs';
+import { Link } from 'react-router-dom';
+import { Container, DIV, Nav, GroupIcon, Logo } from './styles';
 import { LogoCommerceSimples } from '../../../assets/images';
 
 export function Layout() {
@@ -8,14 +9,12 @@ export function Layout() {
    <Nav>
     <Logo src={LogoCommerceSimples} alt="Logo Commerce" />
     <DIV>
+     <Link to="/">Home</Link>
      <a href="/">
-      <p>HOME</p>
+      <p>Produtos</p>
      </a>
      <a href="/">
-      <p>PRODUTOS</p>
-     </a>
-     <a href="/">
-      <p>PEDIDOS</p>
+      <p>Pedidos</p>
      </a>
     </DIV>
     <GroupIcon>
