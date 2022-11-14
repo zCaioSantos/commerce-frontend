@@ -9,7 +9,8 @@ export const Container = styled.main`
 export const Content = styled.article`
  height: 100%;
  flex: 1;
- padding: 1.25rem 7.8125rem;
+ padding: 1rem 7.8125rem;
+ overflow-x: hidden;
 `;
 
 export const ContainerLoading = styled.article`
@@ -19,5 +20,5 @@ export const ContainerLoading = styled.article`
  display: grid;
  place-items: center;
 
- padding: 1.25rem 7.8125rem;
+ padding: 0 7.8125rem;
 `;
