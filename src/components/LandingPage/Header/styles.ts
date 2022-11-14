@@ -26,6 +26,5 @@ export const LinkButton = styled.button`
 
 export const Logo = styled.img`
  cursor: pointer;
- width: 4.5rem;
- height: 4.5rem;
+ height: 3.125rem;
 `;

@@ -3,7 +3,7 @@ export interface ControllerProps {
   title?: string;
   placeholder?: string;
   type: InputTypes;
-  getInputValue: (e: any) => void;
+  getInputValue?: (e: any) => void;
  };
 }
 
