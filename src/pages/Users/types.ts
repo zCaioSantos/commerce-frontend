@@ -5,9 +5,10 @@ export interface LayoutProps {
  data: {
   columns: Columns[];
   response?: ResponseProps;
-  loading?: boolean;
+  isFetched?: boolean;
+  isLoading?: boolean;
   onEdit?: (id: string) => void;
-  onDelete?: (id: string) => void;
+  onDelete?: (id: any) => void;
   onCreate?: () => void;
  };
 }

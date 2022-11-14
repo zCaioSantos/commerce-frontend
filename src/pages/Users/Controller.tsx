@@ -1,51 +1,68 @@
-import axios from 'axios';
-import { useEffect, useState } from 'react';
+import axios, { AxiosError } from 'axios';
+import { useMutation, useQuery } from 'react-query';
+import { toast } from 'react-toastify';
+import queryClient from '../../services/api/queryClient';
 import { ResponseProps } from '../../services/types/Response';
 import { useColumns } from './data';
 import { Layout } from './Layout';
 
 export function Controller() {
  const columns = useColumns();
- const [data, setData] = useState<ResponseProps>();
- const [loading, setLoading] = useState(false);
 
- const response = () => {
-  setLoading(true);
-  axios
-   .get<ResponseProps>('http://localhost:5000/users/admins')
-   .then((responseData) => {
-    setData(responseData.data);
-   })
-   .catch((err) => console.log(err))
-   .finally(() => {
-    setLoading(false);
-   });
- };
+ const { data, isFetched, isLoading } = useQuery(['getAdmins'], () => {
+  const response = axios.get<ResponseProps>(
+   'http://localhost:5000/users/admins'
+  );
+  return response;
+ });
 
  const onEditAdmin = (id: string) => {
   console.log(`Editar ${id}`);
  };
 
- const onDeleteAdmin = (id: string) => {
-  console.log(`Deletar ${id}`);
- };
+ const onDelete = useMutation({
+  mutationFn: (id) => {
+   return axios.delete(`http://localhost:5000/users/${id}`);
+  },
+  onMutate: () => {
+   toast.loading('Ativando/desativando usuário..', {
+    toastId: 'onLoadingDelet',
+   });
+  },
+  onSuccess: (response) => {
+   queryClient.invalidateQueries('getAdmins');
+   toast.update('onLoadingDelet', {
+    render: response.data,
+    type: 'success',
+    isLoading: false,
+    autoClose: 5000,
+    closeOnClick: true,
+   });
+  },
+  onError: (error: AxiosError) => {
+   toast.update('onLoadingDelet', {
+    render: error.message,
+    type: 'error',
+    isLoading: false,
+    autoClose: 5000,
+    closeOnClick: true,
+   });
+  },
+ });
 
  const onCreateAdmin = () => {
   console.log('Criar');
  };
 
- useEffect(() => {
-  response();
- }, []);
-
  return (
   <Layout
    data={{
     columns: columns.data.columns,
-    response: data,
-    loading,
+    response: data?.data,
+    isFetched,
+    isLoading,
     onEdit: onEditAdmin,
-    onDelete: onDeleteAdmin,
+    onDelete: onDelete.mutate,
     onCreate: onCreateAdmin,
    }}
   />
