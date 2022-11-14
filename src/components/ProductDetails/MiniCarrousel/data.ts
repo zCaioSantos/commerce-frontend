@@ -1,6 +1,6 @@
 import { mocks } from './mocks';
 
 export const useData = () => {
- const data = mocks.data;
+ const { data } = mocks;
  return { data };
-}
+};
