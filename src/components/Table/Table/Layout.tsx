@@ -7,10 +7,10 @@ export function Layout({ data }: LayoutProps) {
  return (
   <Container>
    <TableHeader data={data.columns} />
-   {data.loading && <p>Loading...</p>}
+   {data.isLoading && <p>Loading...</p>}
 
-   {!data.loading &&
-    data.response?.content.map((item, index) => (
+   {!data.isLoading &&
+    data.response?.content.map((item: any, index: string) => (
      <TableRow
       key={index}
       data={{
