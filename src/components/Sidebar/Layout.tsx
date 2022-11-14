@@ -1,9 +1,9 @@
 import { useNavigate } from 'react-router-dom';
+import { BsFillReplyFill } from 'react-icons/bs';
 import { LogoCommerceSimples } from '../../assets/images';
 import { SidebarItem } from '../SidebarItem';
 import { LayoutProps } from './types';
 import { Container, Logo } from './styles';
-import { BsFillReplyFill } from 'react-icons/bs';
 
 export function Layout({ data: { sidebarItems } }: LayoutProps) {
  const navigate = useNavigate();

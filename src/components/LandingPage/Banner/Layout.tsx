@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { Button } from '../../Button';
-import { ContainerBanner, MaxButton } from '../Banner/styles';
+import { ContainerBanner, MaxButton } from './styles';
 import { mocks } from './mocks';
 
 export function Layout() {

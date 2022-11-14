@@ -1,43 +1,31 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
- display: flex;
- align-items: center;
- justify-content: center;
-
  width: 100%;
- height: 7rem;
-
- padding: 0 7.8125rem;
-`;
-
-export const Nav = styled.div`
- width: 100%;
-
  display: flex;
  justify-content: space-between;
+ padding: 1.5rem 7.8125rem;
 `;
 
-export const DIV = styled.nav`
- display: flex;
- align-items: center;
- gap: 7rem;
-
- a {
-  text-decoration: none;
-  color: #464646;
-  font-weight: bold;
-  font-size: 1rem;
- }
-`;
-
-export const GroupIcon = styled.div`
+export const ContainerNavigation = styled.nav`
  display: flex;
  align-items: center;
  gap: 2rem;
 `;
 
+export const LinkButton = styled.button`
+ background-color: transparent;
+ cursor: pointer;
+ font-size: 1.875rem;
+
+ transition: color 0.3s ease;
+ &:hover {
+  color: #f79f7c;
+ }
+`;
+
 export const Logo = styled.img`
+ cursor: pointer;
  width: 4.5rem;
  height: 4.5rem;
 `;

@@ -1,8 +1,4 @@
-export interface ControlerProps {
- data?: ProdutoProps[];
-}
-
-export type LayoutProps = ControlerProps;
+import { ImagemProps } from './ImagemProps';
 
 export type ProdutoProps = {
  produto_id: number;
@@ -13,9 +9,4 @@ export type ProdutoProps = {
  estoque: number;
  status: boolean;
  imagens: ImagemProps[];
-};
-
-export type ImagemProps = {
- url: number[];
- tipo: string;
 };

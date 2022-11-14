@@ -1,46 +1,25 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
- height: 650px;
+ width: 100%;
 `;
 
-export const Carrossel = styled.div`
- height: 100%;
- margin: 1rem;
- width: 1480px;
- display: flex;
- overflow-x: auto;
- scroll-behavior: smooth;
-`;
-
-export const Item = styled.div`
- margin: 5rem 1rem;
- cursor: pointer;
-`;
-
-export const Capa = styled.img`
- object-fit: cover;
-`;
-export const Info = styled.div`
- width: auto;
- height: 90px;
+export const Carrossel = styled.ul`
  display: flex;
  flex-direction: column;
- justify-content: space-evenly;
- margin: 20px;
+ gap: 1rem;
+
+ flex-wrap: wrap;
 `;
 
-export const Desc = styled.div`
- font-size: 20px;
- color: #464646;
-`;
-export const Category = styled.div`
- font-size: 16px;
- font-style: light;
- opacity: 40%;
-`;
+export const TitleList = styled.div`
+ display: flex;
+ align-items: center;
+ gap: 0.5rem;
+ font-size: 12px;
 
-export const Price = styled.div`
- font-size: 20px;
- font-weight: 600;
+ h1 {
+  text-transform: uppercase;
+  font-weight: 400;
+ }
 `;
