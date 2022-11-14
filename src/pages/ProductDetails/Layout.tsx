@@ -1,4 +1,4 @@
-import { BarLoader } from 'react-spinners';
+import { RingLoader } from 'react-spinners';
 import { Footer } from '../../components/LandingPage/Footer';
 import { Header } from '../../components/LandingPage/Header';
 import { TopHeader } from '../../components/LandingPage/TopHeader';
@@ -24,7 +24,7 @@ export function Layout({ data }: LayoutProps) {
       />
      </Org>
     ) : (
-     <BarLoader />
+     <RingLoader color="#F29773" />
     )}
    </Content>
    <Footer />
