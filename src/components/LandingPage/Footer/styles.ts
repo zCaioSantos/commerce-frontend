@@ -1,4 +1,4 @@
-import  styled  from 'styled-components';
+import styled from 'styled-components';
 
 export const Container = styled.div`
  background-color: #000;
@@ -7,8 +7,7 @@ export const Container = styled.div`
  display: flex;
  flex-direction: column;
  align-items: center;
- margin: 2rem 0;
-`
+`;
 
 export const Sec = styled.div`
  width: 80px;
@@ -17,16 +16,16 @@ export const Sec = styled.div`
  flex-direction: column;
  justify-content: space-evenly;
  align-items: center;
-`
+`;
 
 export const Icons = styled.div`
  width: 280px;
  height: 36px;
  display: flex;
  flex-direction: row;
- justify-content: space-evenly; 
+ justify-content: space-evenly;
  align-items: center;
-`
+`;
 
 export const Div = styled.div`
  width: 369px;
@@ -35,4 +34,4 @@ export const Div = styled.div`
  font-weight: 600;
  display: flex;
  justify-content: center;
-`
+`;
