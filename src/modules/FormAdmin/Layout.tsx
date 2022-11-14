@@ -1,50 +1,137 @@
+/* eslint-disable react/jsx-props-no-spreading */
+import { Controller } from 'react-hook-form';
 import { Button } from '../../components/Button';
 import { InputText } from '../../components/Inputs/InputText';
-import { ButtonToggle, ContainerForm } from './style';
+import { ContainerForm } from './style';
+import { LayoutProps } from './types';
 
-export function Layout() {
+export function Layout({
+ data: {
+  hookForm: { register, handleSubmit, control, onSubmit, setValue },
+ },
+}: LayoutProps) {
  return (
-  <ContainerForm>
-   <InputText
-    data={{
-     type: 'text',
-     placeholder: 'Nome',
-    }}
+  <ContainerForm onSubmit={(e) => handleSubmit(onSubmit)(e)}>
+   <Controller
+    render={({ field }) => (
+     <InputText
+      {...field}
+      data={{
+       type: 'text',
+       placeholder: 'Nome',
+       getInputValue(e) {
+        setValue('nome', e);
+       },
+      }}
+      {...register('nome', {
+       required: {
+        value: true,
+        message: 'Error',
+       },
+      })}
+     />
+    )}
+    control={control}
+    name="nome"
+    defaultValue=""
    />
-   <InputText
-    data={{
-     type: 'email',
-     placeholder: 'E-mail',
-    }}
+   <Controller
+    render={({ field }) => (
+     <InputText
+      {...field}
+      data={{
+       type: 'text',
+       placeholder: 'E-mail',
+       getInputValue(e) {
+        setValue('email', e);
+       },
+      }}
+      {...register('email', {
+       required: {
+        value: true,
+        message: 'Error',
+       },
+      })}
+     />
+    )}
+    control={control}
+    name="nome"
+    defaultValue=""
    />
-   <InputText
-    data={{
-     type: 'text',
-     placeholder: 'CPF',
-    }}
+   <Controller
+    render={({ field }) => (
+     <InputText
+      {...field}
+      data={{
+       type: 'text',
+       placeholder: 'CPF',
+       getInputValue(e) {
+        setValue('cpf', e);
+       },
+      }}
+      {...register('cpf', {
+       required: {
+        value: true,
+        message: 'Error',
+       },
+      })}
+     />
+    )}
+    control={control}
+    name="nome"
+    defaultValue=""
    />
-   <InputText
-    data={{
-     type: 'text',
-     placeholder: 'Telefone',
-    }}
+   <Controller
+    render={({ field }) => (
+     <InputText
+      {...field}
+      data={{
+       type: 'text',
+       placeholder: 'Telefone',
+       getInputValue(e) {
+        setValue('telefone', e);
+       },
+      }}
+      {...register('telefone', {
+       required: {
+        value: true,
+        message: 'Error',
+       },
+      })}
+     />
+    )}
+    control={control}
+    name="nome"
+    defaultValue=""
    />
-   <InputText
-    data={{
-     type: 'date',
-    }}
+   <Controller
+    render={({ field }) => (
+     <InputText
+      {...field}
+      data={{
+       type: 'date',
+       placeholder: 'Data Nascimento',
+       getInputValue(e) {
+        setValue('data_nascimento', e);
+       },
+      }}
+      {...register('data_nascimento', {
+       required: {
+        value: true,
+        message: 'Error',
+       },
+      })}
+     />
+    )}
+    control={control}
+    name="nome"
+    defaultValue=""
    />
-   <div className="toggle">
-    <ButtonToggle type="button" className="select">
-     Estoquista
-    </ButtonToggle>
-    <ButtonToggle type="button">Admin</ButtonToggle>
-   </div>
+
    <Button
     data={{
      title: 'Cadastrar',
      type: 'submit',
-     onClick: () => console.log('Clicou'),
     }}
    />
   </ContainerForm>
