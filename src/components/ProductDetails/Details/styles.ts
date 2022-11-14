@@ -1,8 +1,5 @@
-import styled  from 'styled-components';
+import styled from 'styled-components';
 
-export const Background = styled.div`
-
-`;
 export const Details = styled.div`
  width: 763px;
  height: 444px;
@@ -20,7 +17,7 @@ export const Infos = styled.div`
 `;
 
 export const Stars = styled.div`
- color: #F79F7C;
+ color: #f79f7c;
 `;
 
 export const Actions = styled.div`
@@ -38,7 +35,8 @@ export const Qtd = styled.div`
  border: solid 1px #000;
  border-radius: 10px;
 
- &:hover .BsPlusLg, .BsDashLg{
+ &:hover .BsPlusLg,
+ .BsDashLg {
   cursor: pointer;
  }
 `;
@@ -47,4 +45,3 @@ export const ControlBtn = styled.div`
  width: 450px;
  height: 54px;
 `;
-
