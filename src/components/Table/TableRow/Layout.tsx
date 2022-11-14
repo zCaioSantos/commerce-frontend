@@ -1,9 +1,9 @@
-import { BsRecordFill } from 'react-icons/bs';
-import { Button, Options, Row, Stauts } from './styles';
+import { BsPencilSquare, BsRecordFill } from 'react-icons/bs';
+import { Button, Options, Row, Slider, Stauts, Switch } from './styles';
 import { LayoutProps } from './types';
 
 export function Layout({ data }: LayoutProps) {
- const id = data.content[data.columns[0].value];
+ const id = data.content['id'];
 
  return (
   <Row>
@@ -19,8 +19,14 @@ export function Layout({ data }: LayoutProps) {
 
    <td>
     <Options>
-     <Button onClick={() => data.onEdit(id)}>EDIT</Button>
-     <Button onClick={() => data.onDelete(id)}>DELET</Button>
+     <Button onClick={() => data.onDelete(id)}>
+      <Switch>
+       <Slider className={data.content.status ? 'enable' : ''} />
+      </Switch>
+     </Button>
+     <Button onClick={() => data.onEdit(id)}>
+      <BsPencilSquare />
+     </Button>
     </Options>
    </td>
   </Row>
