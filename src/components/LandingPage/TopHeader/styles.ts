@@ -15,7 +15,7 @@ export const Container = styled.nav`
  justify-content: flex-end;
 `;
 
-export const Navgation = styled.ul`
+export const Navigation = styled.ul`
  display: flex;
  justify-content: flex-end;
  gap: 1.375rem;
@@ -24,14 +24,16 @@ export const Navgation = styled.ul`
 
  font-size: 16px;
  color: white;
+`;
 
- li {
-  cursor: pointer;
+export const LinkButton = styled.button`
+ background-color: transparent;
+ cursor: pointer;
+ color: white;
 
-  transition: color 0.3s ease;
-  &:hover,
-  &:active {
-   color: #f79f7c;
-  }
+ transition: color 0.3s ease;
+ &:hover,
+ &:active {
+  color: #f79f7c;
  }
 `;

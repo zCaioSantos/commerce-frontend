@@ -1,7 +1,8 @@
-import { BsSearch, BsCart } from 'react-icons/bs';
+import { BsCart } from 'react-icons/bs';
 import { useNavigate } from 'react-router-dom';
 import { Container, ContainerNavigation, LinkButton, Logo } from './styles';
 import { LogoCommerceSimples } from '../../../assets/images';
+import { InputText } from '../../Inputs/InputText';
 
 export function Layout() {
  const navigate = useNavigate();
@@ -13,9 +14,12 @@ export function Layout() {
     onClick={() => navigate('/')}
    />
    <ContainerNavigation>
-    <LinkButton onClick={() => navigate('/')}>
-     <BsSearch />
-    </LinkButton>
+    <InputText
+     data={{
+      placeholder: 'Buscar Produto',
+      type: 'search',
+     }}
+    />
     <LinkButton onClick={() => navigate('/cart')}>
      <BsCart />
     </LinkButton>
