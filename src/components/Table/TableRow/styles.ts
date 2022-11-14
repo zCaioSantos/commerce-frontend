@@ -26,6 +26,9 @@ export const Row = styled.tr`
 `;
 
 export const Button = styled.button`
+ display: flex;
+ align-items: center;
+
  background-color: transparent;
  color: #464646;
  cursor: pointer;

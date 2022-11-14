@@ -3,7 +3,7 @@ import { Button, Options, Row, Slider, Stauts, Switch } from './styles';
 import { LayoutProps } from './types';
 
 export function Layout({ data }: LayoutProps) {
- const id = data.content['id'];
+ const { id } = data.content;
 
  return (
   <Row>
@@ -14,6 +14,7 @@ export function Layout({ data }: LayoutProps) {
    </td>
 
    {data.columns.map((column, index) => (
+    // eslint-disable-next-line react/no-array-index-key
     <td key={index}>{data.content[column.value]}</td>
    ))}
 
