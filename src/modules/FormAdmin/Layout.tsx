@@ -1,35 +1,13 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import {
- UseFormRegister,
- UseFormHandleSubmit,
- FieldErrorsImpl,
- Control,
- Controller,
- UseFormSetValue,
- UseFormGetValues,
-} from 'react-hook-form';
+import { Controller } from 'react-hook-form';
 import { Button } from '../../components/Button';
 import { InputText } from '../../components/Inputs/InputText';
 import { ContainerForm } from './style';
-import { FormData } from './types';
-
-interface LayoutProps {
- data: {
-  hookForm: {
-   control: Control<FormData, any>;
-   register: UseFormRegister<FormData>;
-   handleSubmit: UseFormHandleSubmit<FormData>;
-   errors: Partial<FieldErrorsImpl<FormData>>;
-   onSubmit: (data: any) => void;
-   setValue: UseFormSetValue<FormData>;
-   getValues: UseFormGetValues<FormData>;
-  };
- };
-}
+import { LayoutProps } from './types';
 
 export function Layout({
  data: {
-  hookForm: { register, handleSubmit, errors, control, onSubmit, setValue },
+  hookForm: { register, handleSubmit, control, onSubmit, setValue },
  },
 }: LayoutProps) {
  return (
@@ -57,7 +35,99 @@ export function Layout({
     name="nome"
     defaultValue=""
    />
-   <span>{errors?.nome?.message}</span>
+   <Controller
+    render={({ field }) => (
+     <InputText
+      {...field}
+      data={{
+       type: 'text',
+       placeholder: 'E-mail',
+       getInputValue(e) {
+        setValue('email', e);
+       },
+      }}
+      {...register('email', {
+       required: {
+        value: true,
+        message: 'Error',
+       },
+      })}
+     />
+    )}
+    control={control}
+    name="nome"
+    defaultValue=""
+   />
+   <Controller
+    render={({ field }) => (
+     <InputText
+      {...field}
+      data={{
+       type: 'text',
+       placeholder: 'CPF',
+       getInputValue(e) {
+        setValue('cpf', e);
+       },
+      }}
+      {...register('cpf', {
+       required: {
+        value: true,
+        message: 'Error',
+       },
+      })}
+     />
+    )}
+    control={control}
+    name="nome"
+    defaultValue=""
+   />
+   <Controller
+    render={({ field }) => (
+     <InputText
+      {...field}
+      data={{
+       type: 'text',
+       placeholder: 'Telefone',
+       getInputValue(e) {
+        setValue('telefone', e);
+       },
+      }}
+      {...register('telefone', {
+       required: {
+        value: true,
+        message: 'Error',
+       },
+      })}
+     />
+    )}
+    control={control}
+    name="nome"
+    defaultValue=""
+   />
+   <Controller
+    render={({ field }) => (
+     <InputText
+      {...field}
+      data={{
+       type: 'date',
+       placeholder: 'Data Nascimento',
+       getInputValue(e) {
+        setValue('data_nascimento', e);
+       },
+      }}
+      {...register('data_nascimento', {
+       required: {
+        value: true,
+        message: 'Error',
+       },
+      })}
+     />
+    )}
+    control={control}
+    name="nome"
+    defaultValue=""
+   />
+
    <Button
     data={{
      title: 'Cadastrar',

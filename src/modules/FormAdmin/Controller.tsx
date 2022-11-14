@@ -1,7 +1,7 @@
 import { useForm } from 'react-hook-form';
+import { AdminProps } from '../../pages/Users/types';
 
 import { Layout } from './Layout';
-import { FormData } from './types';
 
 export function Controller() {
  const {
@@ -11,14 +11,14 @@ export function Controller() {
   setValue,
   getValues,
   formState: { errors },
- } = useForm<FormData>();
+ } = useForm<AdminProps>();
 
  const data = {
   hookForm: {
    control,
    register,
    handleSubmit,
-   onSubmit: (dataAdmin: any) => console.log(dataAdmin),
+   onSubmit: (dataAdmin: AdminProps) => console.log(dataAdmin),
    errors,
    setValue,
    getValues,
