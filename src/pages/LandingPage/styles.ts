@@ -9,8 +9,15 @@ export const Container = styled.main`
 export const Content = styled.article`
  height: 100%;
  flex: 1;
+ padding: 1.25rem 7.8125rem;
+`;
 
- display: flex;
- justify-content: center;
- align-items: center;
+export const ContainerLoading = styled.article`
+ height: 100%;
+ flex: 1;
+
+ display: grid;
+ place-items: center;
+
+ padding: 1.25rem 7.8125rem;
 `;
