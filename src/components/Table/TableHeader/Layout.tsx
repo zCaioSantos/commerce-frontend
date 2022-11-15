@@ -1,4 +1,3 @@
-import { BsRecordFill } from 'react-icons/bs';
 import { Header } from './styles';
 import { LayoutProps } from './types';
 

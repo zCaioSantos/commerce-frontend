@@ -9,7 +9,6 @@ export interface LayoutProps {
   isLoading?: boolean;
   onEdit?: (id: string) => void;
   onDelete?: (id: any) => void;
-  onCreate?: () => void;
  };
 }
 

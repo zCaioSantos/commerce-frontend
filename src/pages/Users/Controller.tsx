@@ -50,10 +50,6 @@ export function Controller() {
   },
  });
 
- const onCreateAdmin = () => {
-  console.log('Criar');
- };
-
  return (
   <Layout
    data={{
@@ -63,7 +59,6 @@ export function Controller() {
     isLoading,
     onEdit: onEditAdmin,
     onDelete: onDelete.mutate,
-    onCreate: onCreateAdmin,
    }}
   />
  );

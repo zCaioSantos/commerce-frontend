@@ -1,0 +1,1 @@
+export { useInternalModal } from './InternalModal';
