@@ -12,6 +12,7 @@ export function Layout({
 }: LayoutProps) {
  return (
   <ContainerForm onSubmit={(e) => handleSubmit(onSubmit)(e)}>
+   <strong>Formulario de Cadastro</strong>
    <Controller
     render={({ field }) => (
      <InputText
@@ -47,6 +48,29 @@ export function Layout({
        },
       }}
       {...register('email', {
+       required: {
+        value: true,
+        message: 'Error',
+       },
+      })}
+     />
+    )}
+    control={control}
+    name="nome"
+    defaultValue=""
+   />
+   <Controller
+    render={({ field }) => (
+     <InputText
+      {...field}
+      data={{
+       type: 'text',
+       placeholder: 'Senha',
+       getInputValue(e) {
+        setValue('senha', e);
+       },
+      }}
+      {...register('senha', {
        required: {
         value: true,
         message: 'Error',
