@@ -1,10 +1,10 @@
 import {
  Control,
- UseFormRegister,
- UseFormHandleSubmit,
  FieldErrorsImpl,
- UseFormSetValue,
  UseFormGetValues,
+ UseFormHandleSubmit,
+ UseFormRegister,
+ UseFormSetValue,
 } from 'react-hook-form';
 import { AdminProps } from '../../pages/Users/types';
 

@@ -7,13 +7,12 @@ export const ContainerForm = styled.form`
  align-items: center;
  gap: 1rem;
 
- .toggle {
+ strong {
   width: 100%;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-
-  margin-bottom: 1.5rem;
+  text-align: left;
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  padding-left: 0.25rem;
  }
 `;
 
@@ -52,9 +51,4 @@ export const RadioButton = styled.label`
   background: #464646;
   color: white;
  }
-
- /* &.enable {
-  background: #464646;
-  color: white;
- } */
 `;
