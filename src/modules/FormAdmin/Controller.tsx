@@ -4,10 +4,12 @@ import { useMutation } from 'react-query';
 import { toast } from 'react-toastify';
 import { AdminProps } from '../../pages/Users/types';
 import queryClient from '../../services/api/queryClient';
+import { useInternalModal } from '../../services/hooks/Modals';
 
 import { Layout } from './Layout';
 
 export function Controller() {
+ const { handleCloseModal } = useInternalModal();
  const {
   control,
   register,
@@ -35,6 +37,7 @@ export function Controller() {
     autoClose: 5000,
     closeOnClick: true,
    });
+   handleCloseModal();
   },
   onError: (error: AxiosError) => {
    toast.update('onCreateAdmin', {
