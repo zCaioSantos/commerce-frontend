@@ -2,7 +2,7 @@
 import { Controller } from 'react-hook-form';
 import { Button } from '../../components/Button';
 import { InputText } from '../../components/Inputs/InputText';
-import { ContainerForm } from './style';
+import { ContainerFlex, ContainerForm, InputRadio, RadioButton } from './style';
 import { LayoutProps } from './types';
 
 export function Layout({
@@ -127,6 +127,28 @@ export function Layout({
     name="nome"
     defaultValue=""
    />
+
+   <ContainerFlex>
+    <RadioButton htmlFor="admin">
+     Admin
+     <InputRadio
+      {...register('perfil')}
+      id="admin"
+      type="radio"
+      value="admin"
+     />
+    </RadioButton>
+
+    <RadioButton htmlFor="estoquista">
+     Estoquista
+     <InputRadio
+      {...register('perfil')}
+      id="estoquista"
+      type="radio"
+      value="estoquista"
+     />
+    </RadioButton>
+   </ContainerFlex>
 
    <Button
     data={{
