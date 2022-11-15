@@ -3,12 +3,11 @@ import styled from 'styled-components';
 export const Container = styled.li`
  width: 100%;
  height: 200px;
-
  display: flex;
  align-items: center;
  justify-content: space-between;
-
  overflow: hidden;
+ margin: 2rem 1rem;
 `;
 
 export const Info = styled.div`
@@ -70,10 +69,12 @@ export const Amount = styled.div`
 
  font-size: 1.5625rem;
 
- > input[type='number'] {
+ > input[type='number'], input::-webkit-outer-spin-button, input::-webkit-inner-spin-button{
+  -webkit-appearance: none;
   background-color: transparent;
   width: 100%;
   text-align: center;
+  
   &::placeholder {
    text-align: center;
   }

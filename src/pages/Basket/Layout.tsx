@@ -3,7 +3,7 @@ import { Header } from '../../components/LandingPage/Header';
 import { TopHeader } from '../../components/LandingPage/TopHeader';
 import { Footer } from '../../components/LandingPage/Footer';
 import { LayoutProps } from './types';
-import { Container, Content, InfoCarro } from './styles';
+import { Container, ContainerItens, Content, InfoCarro } from './styles';
 import { Item } from '../../components/Basket/Item';
 import { SummaryPurchase } from '../../components/Basket/SummaryPurchase';
 
@@ -17,7 +17,9 @@ export function Layout({ data }: LayoutProps) {
     <h3>PRODUTOS E FRETE</h3>
    </InfoCarro>
    <Content>
-    <Item />
+    <ContainerItens>
+     <Item />
+    </ContainerItens>
     <SummaryPurchase />
    </Content>
    <Footer />

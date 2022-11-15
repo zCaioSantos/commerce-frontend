@@ -21,7 +21,7 @@ export function Layout() {
     <div>
      <Amount>
       <BsChevronLeft />
-      <input type="number" />
+      <input type="number"/>
       <BsChevronRight />
      </Amount>
 

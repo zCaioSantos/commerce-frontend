@@ -23,16 +23,14 @@ export function Layout() {
     <div>R$ 686,68</div>
     </Amount>
    <Btn>
-    <Button color='#1F9050' data={{
+    <Button data={{
      title: "IR AO PAGAMENTO",
      type: 'button'
-    }}>
-    </Button>
+    }} />
     <Button data={{
      title: "CONTINUAR COMPRANDO",
      type: 'button'
-     }}>
-    </Button>
+     }} />
    </Btn>
    </Content>
   </Container>
