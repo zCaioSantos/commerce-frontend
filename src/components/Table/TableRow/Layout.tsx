@@ -25,7 +25,7 @@ export function Layout({ data }: LayoutProps) {
        <Slider className={data.content.status ? 'enable' : ''} />
       </Switch>
      </Button>
-     <Button onClick={() => data.onEdit(id)}>
+     <Button onClick={() => data.onEdit(data.content)}>
       <BsPencilSquare />
      </Button>
     </Options>
