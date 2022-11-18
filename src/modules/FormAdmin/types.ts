@@ -8,6 +8,12 @@ import {
 } from 'react-hook-form';
 import { AdminProps } from '../../pages/Users/types';
 
+export interface ControllerProps {
+ data?: {
+  selectedAdmin?: AdminProps | undefined;
+ };
+}
+
 export interface LayoutProps {
  data: {
   hookForm: {
@@ -20,4 +26,5 @@ export interface LayoutProps {
    getValues: UseFormGetValues<AdminProps>;
   };
  };
+ selectedAdmin?: AdminProps | undefined;
 }

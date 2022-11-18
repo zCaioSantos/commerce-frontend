@@ -17,5 +17,4 @@ export type ProdutoProps = {
 
 export type ImagemProps = {
  url: number[];
- tipo: string;
 };
