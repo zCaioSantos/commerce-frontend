@@ -1,4 +1,4 @@
-import axios, { AxiosError } from 'axios';
+import axios from 'axios';
 import { useForm } from 'react-hook-form';
 import { useMutation } from 'react-query';
 import { toast } from 'react-toastify';
@@ -7,8 +7,9 @@ import queryClient from '../../services/api/queryClient';
 import { useInternalModal } from '../../services/hooks/Modals';
 
 import { Layout } from './Layout';
+import { ControllerProps } from './types';
 
-export function Controller() {
+export function Controller({ data: selectedAdmin }: ControllerProps) {
  const { handleCloseModal } = useInternalModal();
  const {
   control,
@@ -17,11 +18,13 @@ export function Controller() {
   setValue,
   getValues,
   formState: { errors },
- } = useForm<AdminProps>();
+ } = useForm<AdminProps>({
+  defaultValues: { ...selectedAdmin?.selectedAdmin },
+ });
 
  const onCreate = useMutation({
   mutationFn: (data: AdminProps) => {
-   return axios.post(`http://localhost:5000/users/novoAdmin`, data);
+   return axios.post(`http://localhost:5000/admin/`, data);
   },
   onMutate: () => {
    toast.loading('Ativando/desativando usuário..', {
@@ -39,9 +42,9 @@ export function Controller() {
    });
    handleCloseModal();
   },
-  onError: (error: AxiosError) => {
+  onError: () => {
    toast.update('onCreateAdmin', {
-    render: error.message,
+    render: 'Falha ao tentar criar novo usuario!',
     type: 'error',
     isLoading: false,
     autoClose: 5000,
@@ -50,17 +53,56 @@ export function Controller() {
   },
  });
 
+ const onEdit = useMutation({
+  mutationFn: (data: AdminProps) => {
+   return axios.put(`http://localhost:5000/admin/${data.id}`, data);
+  },
+  onMutate: () => {
+   toast.loading('Editando usuário..', {
+    toastId: 'onEditAdmin',
+   });
+  },
+  onSuccess: () => {
+   queryClient.invalidateQueries('getAdmins');
+   toast.update('onEditAdmin', {
+    render: 'Usuario editado com sucesso!',
+    type: 'success',
+    isLoading: false,
+    autoClose: 5000,
+    closeOnClick: true,
+   });
+   handleCloseModal();
+  },
+  onError: () => {
+   toast.update('onEditAdmin', {
+    render: 'Falha ao tentar editar esse usuario',
+    type: 'error',
+    isLoading: false,
+    autoClose: 5000,
+    closeOnClick: true,
+   });
+  },
+ });
+
+ const onSubmit = (dataAdmin: AdminProps) => {
+  if (!selectedAdmin?.selectedAdmin?.id) {
+   onCreate.mutate(dataAdmin);
+  } else {
+   onEdit.mutate(dataAdmin);
+  }
+ };
+
  const data = {
   hookForm: {
    control,
    register,
    handleSubmit,
-   onSubmit: (dataAdmin: AdminProps) => onCreate.mutate(dataAdmin),
+   onSubmit: (dataAdmin: AdminProps) => onSubmit(dataAdmin),
    errors,
    setValue,
    getValues,
   },
  };
 
- return <Layout data={data} />;
+ return <Layout data={data} selectedAdmin={selectedAdmin?.selectedAdmin} />;
 }

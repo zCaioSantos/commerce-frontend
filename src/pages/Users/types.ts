@@ -7,8 +7,10 @@ export interface LayoutProps {
   response?: ResponseProps;
   isFetched?: boolean;
   isLoading?: boolean;
-  onEdit?: (id: string) => void;
-  onDelete?: (id: any) => void;
+  onEdit: (dataAdmin: AdminProps) => void;
+  onDelete?: (id: string) => void;
+  selectedAdmin?: AdminProps;
+  setSelectedAdmin?: (data: AdminProps) => void;
  };
 }
 

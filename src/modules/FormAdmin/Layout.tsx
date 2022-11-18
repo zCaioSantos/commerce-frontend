@@ -9,10 +9,11 @@ export function Layout({
  data: {
   hookForm: { register, handleSubmit, control, onSubmit, setValue },
  },
+ selectedAdmin,
 }: LayoutProps) {
  return (
   <ContainerForm onSubmit={(e) => handleSubmit(onSubmit)(e)}>
-   <strong>Formulario de Cadastro</strong>
+   <strong>Formulario de {!selectedAdmin?.id ? 'Cadastro' : 'Edição'}</strong>
    <Controller
     render={({ field }) => (
      <InputText
@@ -23,6 +24,7 @@ export function Layout({
        getInputValue(e) {
         setValue('nome', e);
        },
+       value: selectedAdmin?.nome,
       }}
       {...register('nome', {
        required: {
@@ -34,7 +36,7 @@ export function Layout({
     )}
     control={control}
     name="nome"
-    defaultValue=""
+    defaultValue={selectedAdmin?.nome}
    />
    <Controller
     render={({ field }) => (
@@ -46,6 +48,7 @@ export function Layout({
        getInputValue(e) {
         setValue('email', e);
        },
+       value: selectedAdmin?.email,
       }}
       {...register('email', {
        required: {
@@ -64,11 +67,12 @@ export function Layout({
      <InputText
       {...field}
       data={{
-       type: 'text',
+       type: 'password',
        placeholder: 'Senha',
        getInputValue(e) {
         setValue('senha', e);
        },
+       value: selectedAdmin?.senha,
       }}
       {...register('senha', {
        required: {
@@ -92,6 +96,7 @@ export function Layout({
        getInputValue(e) {
         setValue('cpf', e);
        },
+       value: selectedAdmin?.cpf,
       }}
       {...register('cpf', {
        required: {
@@ -115,6 +120,7 @@ export function Layout({
        getInputValue(e) {
         setValue('telefone', e);
        },
+       value: selectedAdmin?.telefone,
       }}
       {...register('telefone', {
        required: {
@@ -138,6 +144,7 @@ export function Layout({
        getInputValue(e) {
         setValue('data_nascimento', e);
        },
+       value: selectedAdmin?.data_nascimento,
       }}
       {...register('data_nascimento', {
        required: {
@@ -176,7 +183,7 @@ export function Layout({
 
    <Button
     data={{
-     title: 'Cadastrar',
+     title: !selectedAdmin?.id ? 'Cadastrar' : 'Salvar',
      type: 'submit',
     }}
    />
