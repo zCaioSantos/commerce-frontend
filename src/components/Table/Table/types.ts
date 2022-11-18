@@ -1,3 +1,4 @@
+import { AdminProps } from '../../../pages/Users/types';
 import { Columns } from '../../../services/types/Column';
 import { ResponseProps } from '../../../services/types/Response';
 
@@ -7,7 +8,7 @@ export interface ControllerProps {
   response?: ResponseProps;
   isFetched?: boolean;
   isLoading?: boolean;
-  onEdit: (id: string) => void;
+  onEdit: (dataAdmin: AdminProps) => void;
   onDelete: (id: string) => void;
   onCreate: () => void;
  };

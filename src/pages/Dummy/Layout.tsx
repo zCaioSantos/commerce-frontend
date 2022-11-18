@@ -1,11 +1,10 @@
 import { AdminLayout } from '../../Layouts/AdminLayout';
-import { FormAdmin } from '../../modules/FormAdmin';
-import { LayoutProps } from './types';
+import { FormProduct } from '../../modules/FornProduct';
 
-export function Layout({ data }: LayoutProps) {
+export function Layout() {
  return (
   <AdminLayout onClick={() => console.log('Novo Cliente')}>
-   <FormAdmin />
+   <FormProduct />
   </AdminLayout>
  );
 }

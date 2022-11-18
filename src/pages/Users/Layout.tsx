@@ -10,7 +10,11 @@ export function Layout({ data }: LayoutProps) {
  const { Modal, handleOpenModal } = useInternalModal();
  const refDeleteCard = useRef(null);
  return (
-  <AdminLayout onClick={handleOpenModal}>
+  <AdminLayout
+   onClick={() => {
+    data?.setSelectedAdmin({}), handleOpenModal();
+   }}
+  >
    <ContainerUsers>
     <Table data={data} />
     {Modal ? (
@@ -21,7 +25,14 @@ export function Layout({ data }: LayoutProps) {
        ref: refDeleteCard,
       }}
      >
-      <FormAdmin />
+      {data?.selectedAdmin && (
+       <FormAdmin
+        data={{
+         selectedAdmin: data?.selectedAdmin ? data.selectedAdmin : {},
+        }}
+       />
+      )}
+      {!data?.selectedAdmin && <FormAdmin />}
      </Modal>
     ) : null}
    </ContainerUsers>

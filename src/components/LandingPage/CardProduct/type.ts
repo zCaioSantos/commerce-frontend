@@ -2,7 +2,7 @@ export interface ControllerProps {
  data: {
   nome: string;
   preco: number;
-  image?: string;
+  image?: any;
   navigate: () => void;
  };
 }

@@ -1,10 +1,10 @@
 import { RingLoader } from 'react-spinners';
+import { Carousel } from '../../components/LandingPage/Carousel';
+import { Footer } from '../../components/LandingPage/Footer';
 import { Header } from '../../components/LandingPage/Header';
 import { TopHeader } from '../../components/LandingPage/TopHeader';
-import { Footer } from '../../components/LandingPage/Footer';
-import { Carousel } from '../../components/LandingPage/Carousel';
+import { Container, ContainerLoading, Content } from './styles';
 import { LayoutProps } from './types';
-import { Container, Content, ContainerLoading } from './styles';
 
 export function Layout({ data }: LayoutProps) {
  return (

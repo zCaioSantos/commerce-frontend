@@ -4,6 +4,7 @@ export interface ControllerProps {
   placeholder?: string;
   type: InputTypes;
   getInputValue?: (e: any) => void;
+  value?: string;
  };
 }
 
