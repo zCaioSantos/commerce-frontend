@@ -9,7 +9,7 @@ import { GlobalStyle } from './styles';
 import { ThemeProvider } from './styles/theme';
 
 import 'react-toastify/dist/ReactToastify.css';
-import ShopCartProvider from './services/context/ShopCarProvider';
+import ShopCartProvider from './services/context/ShopCart/ShopCarProvider';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
  <React.StrictMode>
