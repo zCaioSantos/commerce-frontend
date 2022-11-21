@@ -8,7 +8,6 @@ import { LayotProps } from './type';
 export function Layout({ data }: LayotProps) {
  const { onAddToCart } = useCartShop();
  const navigate = useNavigate();
- console.log(String(data.imagens[0].url));
  return (
   <CardContainer>
    <Image onClick={() => navigate(`/produtos/${data.produto_id}`)}>

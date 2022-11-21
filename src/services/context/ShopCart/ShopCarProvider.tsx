@@ -19,7 +19,23 @@ function ShopCartProvider({ children }: ShopCartProviderProps) {
 
  const onAddToCart = (produto: ProdutosPropsToCart) => {
   setListCartProducts((old) => {
-   const newCart = [...old, produto];
+   let qtd = 0;
+
+   old.forEach((produtoList) => {
+    if (produtoList.produto_id === produto.produto_id) {
+     qtd = produtoList.quantidade;
+    }
+   });
+
+   const filteredProductsToCard = listCartProducts.filter(
+    (produtoRemove) => produtoRemove.produto_id !== produto.produto_id
+   );
+
+   const newCart = [
+    ...filteredProductsToCard,
+    { ...produto, quantidade: produto.quantidade + qtd },
+   ];
+
    window.localStorage.setItem('@ShopCart', JSON.stringify(newCart));
    toast.success('Produto Acionado ao carrinho!', {
     autoClose: 1500,
@@ -33,7 +49,10 @@ function ShopCartProvider({ children }: ShopCartProviderProps) {
    (produto) => produto.produto_id !== id
   );
   setListCartProducts(filteredProductsToCard);
-  window.localStorage.setItem('@ShopCart', JSON.stringify(listCartProducts));
+  window.localStorage.setItem(
+   '@ShopCart',
+   JSON.stringify(filteredProductsToCard)
+  );
  };
 
  const onIncrease = (id: number) => {
@@ -43,11 +62,10 @@ function ShopCartProvider({ children }: ShopCartProviderProps) {
    if (produto.produto_id === id) {
     // eslint-disable-next-line no-param-reassign
     produto.quantidade += 1;
+    setListCartProducts(produtos);
+    window.localStorage.setItem('@ShopCart', JSON.stringify(listCartProducts));
    }
   });
-
-  setListCartProducts(produtos);
-  window.localStorage.setItem('@ShopCart', JSON.stringify(listCartProducts));
  };
 
  const onDecrease = (id: number) => {
@@ -55,15 +73,30 @@ function ShopCartProvider({ children }: ShopCartProviderProps) {
 
   produtos.forEach((produto) => {
    if (produto.produto_id === id) {
-    if (produto.quantidade > 0) {
+    if (produto.quantidade > 1) {
      // eslint-disable-next-line no-param-reassign
      produto.quantidade -= 1;
+     setListCartProducts(produtos);
+     window.localStorage.setItem('@ShopCart', JSON.stringify(listCartProducts));
     }
    }
   });
+ };
 
-  setListCartProducts(produtos);
-  window.localStorage.setItem('@ShopCart', JSON.stringify(listCartProducts));
+ const getQuantityProducts = () => {
+  let quantity = 0;
+  listCartProducts.forEach((produtos) => {
+   quantity += produtos.quantidade;
+  });
+  return quantity;
+ };
+
+ const getValueTotal = () => {
+  let total = 0;
+  listCartProducts.forEach((produtos) => {
+   total += Number(produtos.preco) * produtos.quantidade;
+  });
+  return total;
  };
 
  return (
@@ -75,6 +108,8 @@ function ShopCartProvider({ children }: ShopCartProviderProps) {
     onRemoveToCart,
     onDecrease,
     onIncrease,
+    getValueTotal,
+    getQuantityProducts,
    }}
   >
    {children}

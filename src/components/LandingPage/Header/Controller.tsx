@@ -1,15 +1,13 @@
-import { useContext } from 'react';
-import { ShopCartContext } from '../../../services/context/ShopCart/ShopCarProvider';
+import { useCartShop } from '../../../services/context/ShopCart/hook';
 
-import { ShopCartContextData } from '../../../services/context/ShopCart/types';
 import { Layout } from './Layout';
 
 export function Controller() {
- const { listCartProducts } = useContext<ShopCartContextData>(ShopCartContext);
+ const { getQuantityProducts } = useCartShop();
  return (
   <Layout
    data={{
-    listCardSize: listCartProducts.length,
+    listCardSize: getQuantityProducts(),
    }}
   />
  );
