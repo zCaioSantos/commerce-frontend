@@ -1,3 +1,5 @@
+import { ImagemProps } from './ImagemProps';
+
 export type ProdutoProps = {
  produto_id: number;
  nome: string;
@@ -6,5 +8,9 @@ export type ProdutoProps = {
  preco: string;
  estoque: string;
  status: boolean;
- imagem: any;
+ imagens: ImagemProps[];
 };
+
+export interface ProdutosPropsToCart extends ProdutoProps {
+ quantidade: number | 0;
+}
