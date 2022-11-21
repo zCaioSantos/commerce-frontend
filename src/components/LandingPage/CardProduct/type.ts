@@ -1,10 +1,7 @@
+import { ProdutoProps } from '../../../services/types/ProdutoProps';
+
 export interface ControllerProps {
- data: {
-  nome: string;
-  preco: number;
-  image?: any;
-  navigate: () => void;
- };
+ data: ProdutoProps;
 }
 
 export type LayotProps = ControllerProps;

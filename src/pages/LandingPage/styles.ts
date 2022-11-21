@@ -11,6 +11,7 @@ export const Content = styled.article`
  flex: 1;
  padding: 1rem 7.8125rem;
  overflow-x: hidden;
+ background-color: #f6f6f6;
 `;
 
 export const ContainerLoading = styled.article`

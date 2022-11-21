@@ -1,47 +1,66 @@
 import styled from 'styled-components';
 
 export const CardContainer = styled.li`
- width: 250px;
- height: 300px;
- box-shadow: 0px 1px 13px rgba(0, 0, 0, 0.1);
- cursor: pointer;
- transition: all 120ms;
+ width: 14.25rem;
 
  display: flex;
  align-items: center;
+
  flex-direction: column;
 
- background: #fff;
- padding: 20px;
+ background-color: white;
+`;
 
- position: relative;
- overflow: hidden;
+export const Image = styled.div`
+ padding: 0.25rem;
+ width: 225px;
+ height: 14.0625rem;
 
- &:hover {
-  opacity: 0.9;
+ cursor: pointer;
+ > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
  }
+`;
 
- &:active {
-  transform: scale(0.98);
+export const Content = styled.div`
+ width: 100%;
+ padding: 1.125rem 1rem;
+
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ flex-direction: column;
+
+ > button {
+  width: 193.19px;
+  height: 36px;
+  background-color: transparent;
+  border: 1px solid rgba(34, 34, 34, 0.5);
+  border-radius: 3px;
+  color: #2b3445;
+
+  transition: all 0.3s ease;
+  &:hover {
+   cursor: pointer;
+   background-color: #2b3445;
+   color: white;
+  }
  }
 `;
 
 export const Title = styled.strong`
- font-size: 1.125rem;
- font-weight: 500;
- margin-bottom: 0.25rem;
+ font-weight: 400;
+ font-size: 14px;
+ color: #2b3445;
+ margin-bottom: 0.5rem;
+ cursor: pointer;
 `;
 
 export const Price = styled.span`
- font-size: 1rem;
- font-weight: 800;
-`;
-
-export const Image = styled.img`
- background: rgb(241, 241, 241);
- width: 100%;
- height: 100%;
- object-fit: cover;
- display: grid;
- place-items: center;
+ font-weight: 700;
+ font-size: 17px;
+ color: #2b3445;
+ margin-bottom: 1rem;
 `;
