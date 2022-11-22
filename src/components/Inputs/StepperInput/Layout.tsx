@@ -10,11 +10,16 @@ export function Layout({ data }: LayoutProps) {
      // eslint-disable-next-line no-unused-expressions
      data.value > 1 ? data.onClick(data.value - 1) : '';
     }}
+    disabled={data.value === 1}
    >
     -
    </Button>
    <Input type="number" value={data.value} />
-   <Button type="button" onClick={() => data.onClick(data.value + 1)}>
+   <Button
+    type="button"
+    onClick={() => data.onClick(data.value + 1)}
+    disabled={data.value === data.max}
+   >
     +
    </Button>
   </ContainerInput>

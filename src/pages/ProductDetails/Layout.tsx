@@ -53,9 +53,20 @@ export function Layout({ data }: LayoutProps) {
        <NameCommerce>Commerce Company</NameCommerce>
        <Name>{data.response?.nome}</Name>
        <Description>{data.response?.descricao}</Description>
-       <Price>R${data.response?.preco}</Price>
+       <Price>
+        {(data.response?.preco).toLocaleString('pr-br', {
+         style: 'currency',
+         currency: 'BRL',
+        })}
+       </Price>
        <OptionContainer>
-        <StepperInput data={{ value: quantidade, onClick: setQuantidade }} />
+        <StepperInput
+         data={{
+          value: quantidade,
+          onClick: setQuantidade,
+          max: data.response?.estoque,
+         }}
+        />
         <Button
          data={{
           title: 'Adicionar ao carrinho',

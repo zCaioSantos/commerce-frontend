@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.footer`
- height: 180px;
+ min-height: 180px;
 
  display: flex;
  flex-direction: column;

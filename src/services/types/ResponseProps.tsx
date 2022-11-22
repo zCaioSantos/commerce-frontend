@@ -1,5 +1,5 @@
-export interface ResponseProps {
- content: any;
+export interface ResponseProps<T> {
+ content: T;
  pageable: Pageable;
  last: boolean;
  totalElements: number;

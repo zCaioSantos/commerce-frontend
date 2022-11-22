@@ -16,6 +16,7 @@ export const Content = styled.article`
  gap: 3.9375rem;
 
  padding: 1.5rem 7.8125rem;
+ background-color: #f6f6f6;
 `;
 
 export const ImagemContainer = styled.section`
@@ -33,6 +34,7 @@ export const ImagemList = styled.ul`
 
  > li {
   width: 6.25rem;
+  cursor: pointer;
 
   > img {
    width: 100%;
@@ -44,6 +46,10 @@ export const ImagemList = styled.ul`
 export const Capa = styled.div`
  width: 445px;
  border-radius: 15px;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ padding: 0.75rem;
 
  > img {
   width: 100%;

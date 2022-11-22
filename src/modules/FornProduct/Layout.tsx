@@ -111,7 +111,6 @@ export function Layout({
     )}
     control={control}
     name="estoque"
-    defaultValue=""
    />
 
    <Controller
@@ -119,7 +118,7 @@ export function Layout({
      <InputText
       {...field}
       data={{
-       type: 'number',
+       type: 'text',
        placeholder: 'Preço',
        getInputValue(e) {
         setValue('preco', e);
@@ -135,7 +134,6 @@ export function Layout({
     )}
     control={control}
     name="preco"
-    defaultValue=""
    />
 
    <InputFileContainer>

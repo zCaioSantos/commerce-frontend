@@ -12,4 +12,5 @@ export interface ShopCartContextData {
  onDecrease: (id: number) => void;
  getValueTotal: () => number;
  getQuantityProducts: () => number;
+ clearToCart: () => void;
 }

@@ -24,7 +24,12 @@ export function Layout({ data }: LayoutProps) {
     </Image>
     <InfoContainer>
      <Title>{data.nome}</Title>
-     <Price>R${data.preco}</Price>
+     <Price>
+      {data.preco.toLocaleString('pr-br', {
+       style: 'currency',
+       currency: 'BRL',
+      })}
+     </Price>
     </InfoContainer>
    </LeftContainer>
    <CustomStepper>
@@ -36,7 +41,11 @@ export function Layout({ data }: LayoutProps) {
      -
     </button>
     <span>{data.quantidade}</span>
-    <button type="button" onClick={() => onIncrease(data.produto_id)}>
+    <button
+     type="button"
+     onClick={() => onIncrease(data.produto_id)}
+     disabled={data.quantidade === data.estoque}
+    >
      +
     </button>
     <button

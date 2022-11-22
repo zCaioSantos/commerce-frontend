@@ -1,23 +1,21 @@
 import styled from 'styled-components';
 
 export const Container = styled.nav`
- display: flex;
- align-items: center;
- justify-content: flex-end;
+ width: 100%;
+ min-height: 56px;
 
  padding: 0 7.8125rem;
 
  background-color: black;
- width: 100%;
- height: 3.5rem;
 
  display: flex;
+ align-items: center;
  justify-content: flex-end;
 `;
 
 export const Navigation = styled.ul`
  display: flex;
- justify-content: flex-end;
+ align-items: center;
  gap: 1.375rem;
 
  list-style: none;

@@ -22,4 +22,9 @@ export const Button = styled.button`
   cursor: pointer;
   filter: brightness(1.1);
  }
+
+ &:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+ }
 `;

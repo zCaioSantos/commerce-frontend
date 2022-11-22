@@ -3,6 +3,7 @@ export interface ControllerProps {
   title: string;
   type?: 'submit' | 'reset' | 'button';
   onClick?: () => void;
+  disabled?: boolean;
  };
 }
 
