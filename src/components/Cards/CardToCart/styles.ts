@@ -24,6 +24,7 @@ export const LeftContainer = styled.div`
 export const Image = styled.div`
  width: 125px;
  height: 125px;
+ cursor: pointer;
  > img {
   border-radius: 0.25rem;
   width: 100%;

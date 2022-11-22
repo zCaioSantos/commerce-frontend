@@ -1,4 +1,5 @@
 import { BsTrashFill } from 'react-icons/bs';
+import { useNavigate } from 'react-router-dom';
 import { useCartShop } from '../../../services/context/ShopCart/hook';
 import {
  Container,
@@ -13,16 +14,17 @@ import { LayoutProps } from './types';
 
 export function Layout({ data }: LayoutProps) {
  const { onIncrease, onDecrease, onRemoveToCart } = useCartShop();
+ const navigate = useNavigate();
  return (
   <Container>
    <LeftContainer>
-    <Image>
+    <Image onClick={() => navigate(`/produtos/${data.produto_id}`)}>
      <img
       src={`/src/assets/images/${data.imagens[0].url}`}
       alt={`Imagem do produto: ${data.nome}`}
      />
     </Image>
-    <InfoContainer>
+    <InfoContainer onClick={() => navigate(`/produtos/${data.produto_id}`)}>
      <Title>{data.nome}</Title>
      <Price>
       {data.preco.toLocaleString('pr-br', {
