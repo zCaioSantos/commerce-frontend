@@ -10,7 +10,7 @@ export function Layout({ data }: LayoutProps) {
      // eslint-disable-next-line no-unused-expressions
      data.value > 1 ? data.onClick(data.value - 1) : '';
     }}
-    disabled={data.value === data.max}
+    disabled={data.value === 1}
    >
     -
    </Button>
