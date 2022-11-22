@@ -55,7 +55,13 @@ export function Layout({ data }: LayoutProps) {
        <Description>{data.response?.descricao}</Description>
        <Price>R${data.response?.preco}</Price>
        <OptionContainer>
-        <StepperInput data={{ value: quantidade, onClick: setQuantidade }} />
+        <StepperInput
+         data={{
+          value: quantidade,
+          onClick: setQuantidade,
+          max: data.response?.estoque,
+         }}
+        />
         <Button
          data={{
           title: 'Adicionar ao carrinho',

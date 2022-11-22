@@ -24,6 +24,11 @@ export const Button = styled.button`
   cursor: pointer;
   background-color: #464646;
  }
+
+ &:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+ }
 `;
 
 export const Input = styled.input`
