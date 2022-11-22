@@ -13,7 +13,6 @@ import { LayoutProps } from './types';
 
 export function Layout({ data }: LayoutProps) {
  const { onIncrease, onDecrease, onRemoveToCart } = useCartShop();
- console.log(data);
  return (
   <Container>
    <LeftContainer>
@@ -25,7 +24,7 @@ export function Layout({ data }: LayoutProps) {
     </Image>
     <InfoContainer>
      <Title>{data.nome}</Title>
-     <Price>R${data.preco}</Price>
+     <Price>R${data.preco},00</Price>
     </InfoContainer>
    </LeftContainer>
    <CustomStepper>

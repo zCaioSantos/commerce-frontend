@@ -9,7 +9,7 @@ import { useCartShop } from '../../services/context/ShopCart/hook';
 import { Layout } from './Layout';
 // import { useData } from './data';
 export function Controller() {
- const { listCartProducts, getQuantityProducts } = useCartShop();
+ const { listCartProducts, getQuantityProducts, clearToCart } = useCartShop();
  const navigate = useNavigate();
  const {
   control,
@@ -43,6 +43,7 @@ export function Controller() {
     autoClose: 5000,
     closeOnClick: true,
    });
+   clearToCart();
    navigate('/');
   },
   onError: () => {

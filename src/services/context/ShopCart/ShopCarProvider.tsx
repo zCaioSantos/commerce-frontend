@@ -99,6 +99,11 @@ function ShopCartProvider({ children }: ShopCartProviderProps) {
   return total;
  };
 
+ const clearToCart = () => {
+  setListCartProducts([]);
+  window.localStorage.removeItem('@ShopCart');
+ };
+
  return (
   <ShopCartContext.Provider
    // eslint-disable-next-line react/jsx-no-constructed-context-values
@@ -110,6 +115,7 @@ function ShopCartProvider({ children }: ShopCartProviderProps) {
     onIncrease,
     getValueTotal,
     getQuantityProducts,
+    clearToCart,
    }}
   >
    {children}
