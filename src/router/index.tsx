@@ -1,5 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import { CartPage } from '../pages/CartPage';
+import { Checkout } from '../pages/Checkout';
 import { Dummy } from '../pages/Dummy';
 import { LandingPage } from '../pages/LandingPage';
 import { ProductDetails } from '../pages/ProductDetails';
@@ -11,6 +12,7 @@ export function Routers() {
    <Route path="/">
     <Route index element={<LandingPage />} />
     <Route path="cart" element={<CartPage />} />
+    <Route path="checkout" element={<Checkout />} />
     <Route path="produtos">
      <Route index element={<h1>Produtos</h1>} />
      <Route path=":id" element={<ProductDetails />} />

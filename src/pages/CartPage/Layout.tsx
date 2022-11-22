@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import { Button } from '../../components/Button';
 import { CardToCart } from '../../components/Cards/CardToCart';
 import { HrVertical } from '../../components/HrVertical';
@@ -9,6 +10,7 @@ import { CartContainer, Container, Content, ListProducts } from './styles';
 
 export function Layout() {
  const { listCartProducts, getValueTotal, getQuantityProducts } = useCartShop();
+ const navigate = useNavigate();
  return (
   <Container>
    <TopHeader />
@@ -29,15 +31,19 @@ export function Layout() {
        <HrVertical />
        <div className="right">
         <strong>
-         Valor total: <span>R${getValueTotal()},00</span>
+         Produtos diferentes: <span>{listCartProducts.length}</span>
         </strong>
         <strong>
          Quantidade de produtos: <span>{getQuantityProducts()}</span>
+        </strong>
+        <strong>
+         Total da compra <span>R${getValueTotal()},00</span>
         </strong>
         <Button
          data={{
           title: 'Comprar',
           type: 'button',
+          onClick: () => navigate('/checkout'),
          }}
         />
        </div>
