@@ -1,10 +1,10 @@
-import { Columns } from '../../services/types/Column';
-import { ResponseProps } from '../../services/types/Response';
+import { ColumnsProps } from '../../services/types/ColumnProps';
+import { ResponseProps } from '../../services/types/ResponseProps';
 
 export interface LayoutProps {
  data: {
-  columns: Columns[];
-  response?: ResponseProps;
+  columns: ColumnsProps[];
+  response?: ResponseProps<AdminProps[]>;
   isFetched?: boolean;
   isLoading?: boolean;
   onEdit: (dataAdmin: AdminProps) => void;

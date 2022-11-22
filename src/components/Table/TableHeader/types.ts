@@ -1,10 +1,7 @@
+import { ColumnsProps } from '../../../services/types/ColumnProps';
+
 export interface ControllerProps {
- data: Columns[];
+ data: ColumnsProps[];
 }
 
 export type LayoutProps = ControllerProps;
-
-export type Columns = {
- heading: string;
- value: string;
-};

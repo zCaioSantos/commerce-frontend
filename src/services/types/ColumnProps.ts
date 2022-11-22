@@ -1,4 +1,4 @@
-export type Columns = {
+export type ColumnsProps = {
  heading: string;
  value: string;
 };

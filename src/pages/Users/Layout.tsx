@@ -4,7 +4,7 @@ import { AdminLayout } from '../../Layouts/AdminLayout';
 import { FormAdmin } from '../../modules/FormAdmin';
 import { useInternalModal } from '../../services/hooks/Modals';
 import { ContainerUsers } from './styles';
-import { LayoutProps } from './types';
+import { AdminProps, LayoutProps } from './types';
 
 export function Layout({ data }: LayoutProps) {
  const { Modal, handleOpenModal } = useInternalModal();
@@ -28,7 +28,9 @@ export function Layout({ data }: LayoutProps) {
       {data?.selectedAdmin && (
        <FormAdmin
         data={{
-         selectedAdmin: data?.selectedAdmin ? data.selectedAdmin : {},
+         selectedAdmin: data?.selectedAdmin
+          ? data.selectedAdmin
+          : ({} as AdminProps),
         }}
        />
       )}
