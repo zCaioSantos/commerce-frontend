@@ -20,7 +20,12 @@ export function Layout({ data }: LayotProps) {
     <Title onClick={() => navigate(`/produtos/${data.produto_id}`)}>
      {data.nome}
     </Title>
-    <Price>{`R$${data.preco},00`}</Price>
+    <Price>
+     {data.preco.toLocaleString('pr-br', {
+      style: 'currency',
+      currency: 'BRL',
+     })}
+    </Price>
     <Button
      data={{
       title: 'Adicionar',

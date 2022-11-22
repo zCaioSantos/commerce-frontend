@@ -15,13 +15,31 @@ export function Layout({ data, isLoading }: LayoutProps) {
     <LeftContainer>
      <FormPedido data={data} />
      <Info className="top">
-      Valor dos Produtos: <span>R${getValueTotal()},00</span>
+      Valor dos Produtos:{' '}
+      <span>
+       {getValueTotal().toLocaleString('pr-br', {
+        style: 'currency',
+        currency: 'BRL',
+       })}
+      </span>
      </Info>
      <Info>
-      Valor do Frete: <span>R$20,00</span>
+      Valor do Frete:{' '}
+      <span>
+       {(20).toLocaleString('pr-br', {
+        style: 'currency',
+        currency: 'BRL',
+       })}
+      </span>
      </Info>
      <Info>
-      Valor total: <span>R${getValueTotal() + 20},00</span>
+      Valor total:{' '}
+      <span>
+       {(getValueTotal() + 20).toLocaleString('pr-br', {
+        style: 'currency',
+        currency: 'BRL',
+       })}
+      </span>
      </Info>
      <Button
       data={{

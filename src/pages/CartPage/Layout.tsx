@@ -37,7 +37,13 @@ export function Layout() {
          Quantidade de produtos: <span>{getQuantityProducts()}</span>
         </strong>
         <strong>
-         Total da compra <span>R${getValueTotal()},00</span>
+         Total da compra{' '}
+         <span>
+          {getValueTotal().toLocaleString('pr-br', {
+           style: 'currency',
+           currency: 'BRL',
+          })}
+         </span>
         </strong>
         <Button
          data={{

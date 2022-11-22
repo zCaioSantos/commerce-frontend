@@ -24,7 +24,12 @@ export function Layout({ data }: LayoutProps) {
     </Image>
     <InfoContainer>
      <Title>{data.nome}</Title>
-     <Price>R${data.preco},00</Price>
+     <Price>
+      {data.preco.toLocaleString('pr-br', {
+       style: 'currency',
+       currency: 'BRL',
+      })}
+     </Price>
     </InfoContainer>
    </LeftContainer>
    <CustomStepper>
