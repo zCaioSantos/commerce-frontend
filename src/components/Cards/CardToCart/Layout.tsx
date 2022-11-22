@@ -13,6 +13,7 @@ import { LayoutProps } from './types';
 
 export function Layout({ data }: LayoutProps) {
  const { onIncrease, onDecrease, onRemoveToCart } = useCartShop();
+ console.log(data);
  return (
   <Container>
    <LeftContainer>
@@ -36,7 +37,11 @@ export function Layout({ data }: LayoutProps) {
      -
     </button>
     <span>{data.quantidade}</span>
-    <button type="button" onClick={() => onIncrease(data.produto_id)}>
+    <button
+     type="button"
+     onClick={() => onIncrease(data.produto_id)}
+     disabled={data.quantidade === data.estoque}
+    >
      +
     </button>
     <button

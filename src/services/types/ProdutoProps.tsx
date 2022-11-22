@@ -6,7 +6,7 @@ export type ProdutoProps = {
  descricao: string;
  avaliacao: string;
  preco: string;
- estoque: string;
+ estoque: number;
  status: boolean;
  imagens: ImagemProps[];
 };
