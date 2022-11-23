@@ -7,7 +7,6 @@ export function Layout({ data }: LayoutProps) {
    title={data.placeholder}
    type={data.type}
    placeholder={data.placeholder}
-   // eslint-disable-next-line react/jsx-props-no-spreading
    {...data.register}
   />
  );

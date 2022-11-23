@@ -2,12 +2,9 @@ import { UseFormRegisterReturn } from 'react-hook-form';
 
 export interface ControllerProps {
  data: {
-  title?: string;
   placeholder?: string;
   type: InputTypes;
-  getInputValue?: (e: any) => void;
-  value?: string;
-  register: UseFormRegisterReturn<any>;
+  register?: UseFormRegisterReturn<any>;
  };
 }
 

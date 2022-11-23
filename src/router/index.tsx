@@ -5,6 +5,7 @@ import { Dummy } from '../pages/Dummy';
 import { LandingPage } from '../pages/LandingPage';
 import { Login } from '../pages/Login';
 import { ProductDetails } from '../pages/ProductDetails';
+import { SingUp } from '../pages/SingUp';
 import { Users } from '../pages/Users';
 
 export function Routers() {
@@ -15,6 +16,7 @@ export function Routers() {
     <Route path="cart" element={<CartPage />} />
     <Route path="checkout" element={<Checkout />} />
     <Route path="login" element={<Login />} />
+    <Route path="singup" element={<SingUp />} />
     <Route path="produtos">
      <Route index element={<h1>Produtos</h1>} />
      <Route path=":id" element={<ProductDetails />} />
