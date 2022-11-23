@@ -6,11 +6,13 @@ export const sidebarItems = [
   name: 'Usuários',
   route: '/dashboard/users',
   icon: <BsPersonFill />,
+  access: ['admin'],
  },
  {
   id: '0f485b8c-45a5-11ed-b878-0242ac120003',
   name: 'Produtos',
   route: '/dashboard/products',
   icon: <BsFillArchiveFill size={30} />,
+  access: ['admin', 'estoquista'],
  },
 ];
