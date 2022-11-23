@@ -10,4 +10,5 @@ export interface SidebarProps {
  route: string;
  icon: ReactNode;
  isActive: boolean;
+ access: string[];
 }

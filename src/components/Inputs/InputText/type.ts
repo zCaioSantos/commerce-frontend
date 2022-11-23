@@ -1,3 +1,5 @@
+import { UseFormRegisterReturn } from 'react-hook-form';
+
 export interface ControllerProps {
  data: {
   title?: string;
@@ -5,6 +7,7 @@ export interface ControllerProps {
   type: InputTypes;
   getInputValue?: (e: any) => void;
   value?: string;
+  register: UseFormRegisterReturn<any>;
  };
 }
 

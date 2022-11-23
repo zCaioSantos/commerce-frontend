@@ -1,6 +1,5 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import { useState } from 'react';
-import { Controller } from 'react-hook-form';
 import { BsImage } from 'react-icons/bs';
 import { Button } from '../../components/Button';
 import { InputText } from '../../components/Inputs/InputText';
@@ -9,7 +8,7 @@ import { LayoutProps } from './types';
 
 export function Layout({
  data: {
-  hookForm: { register, handleSubmit, control, onSubmit, setValue },
+  hookForm: { register, handleSubmit, onSubmit },
  },
  onSetImg,
 }: LayoutProps) {
@@ -18,122 +17,44 @@ export function Layout({
   <ContainerForm onSubmit={(e) => handleSubmit(onSubmit)(e)}>
    <strong>Formulario de </strong>
 
-   <Controller
-    render={({ field }) => (
-     <InputText
-      {...field}
-      data={{
-       type: 'text',
-       placeholder: 'Nome',
-       getInputValue(e) {
-        setValue('nome', e);
-       },
-      }}
-      {...register('nome', {
-       required: {
-        value: true,
-        message: 'Error',
-       },
-      })}
-     />
-    )}
-    control={control}
-    name="nome"
-    defaultValue=""
+   <InputText
+    data={{
+     type: 'text',
+     placeholder: 'Nome',
+     register: register('nome'),
+    }}
    />
 
-   <Controller
-    render={({ field }) => (
-     <InputText
-      {...field}
-      data={{
-       type: 'text',
-       placeholder: 'Descrição',
-       getInputValue(e) {
-        setValue('descricao', e);
-       },
-      }}
-      {...register('descricao', {
-       required: {
-        value: true,
-        message: 'Error',
-       },
-      })}
-     />
-    )}
-    control={control}
-    name="descricao"
-    defaultValue=""
+   <InputText
+    data={{
+     type: 'text',
+     placeholder: 'Descrição',
+     register: register('descricao'),
+    }}
    />
 
-   <Controller
-    render={({ field }) => (
-     <InputText
-      {...field}
-      data={{
-       type: 'number',
-       placeholder: 'Avaliação',
-       getInputValue(e) {
-        setValue('avaliacao', e);
-       },
-      }}
-      {...register('avaliacao', {
-       required: {
-        value: true,
-        message: 'Error',
-       },
-      })}
-     />
-    )}
-    control={control}
-    name="avaliacao"
-    defaultValue=""
+   <InputText
+    data={{
+     type: 'text',
+     placeholder: 'Avaliação',
+     register: register('avaliacao'),
+    }}
    />
 
-   <Controller
-    render={({ field }) => (
-     <InputText
-      {...field}
-      data={{
-       type: 'number',
-       placeholder: 'Estoque',
-       getInputValue(e) {
-        setValue('estoque', e);
-       },
-      }}
-      {...register('estoque', {
-       required: {
-        value: true,
-        message: 'Error',
-       },
-      })}
-     />
-    )}
-    control={control}
-    name="estoque"
+   <InputText
+    data={{
+     type: 'text',
+     placeholder: 'Estoque',
+     register: register('estoque'),
+    }}
    />
 
-   <Controller
-    render={({ field }) => (
-     <InputText
-      {...field}
-      data={{
-       type: 'text',
-       placeholder: 'Preço',
-       getInputValue(e) {
-        setValue('preco', e);
-       },
-      }}
-      {...register('preco', {
-       required: {
-        value: true,
-        message: 'Error',
-       },
-      })}
-     />
-    )}
-    control={control}
-    name="preco"
+   <InputText
+    data={{
+     type: 'text',
+     placeholder: 'Preço',
+     register: register('preco'),
+    }}
    />
 
    <InputFileContainer>

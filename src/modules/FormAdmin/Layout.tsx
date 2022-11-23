@@ -1,5 +1,4 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import { Controller } from 'react-hook-form';
 import { Button } from '../../components/Button';
 import { InputText } from '../../components/Inputs/InputText';
 import { ContainerFlex, ContainerForm, InputRadio, RadioButton } from './style';
@@ -7,156 +6,59 @@ import { LayoutProps } from './types';
 
 export function Layout({
  data: {
-  hookForm: { register, handleSubmit, control, onSubmit, setValue },
+  hookForm: { register, handleSubmit, onSubmit },
  },
  selectedAdmin,
 }: LayoutProps) {
  return (
   <ContainerForm onSubmit={(e) => handleSubmit(onSubmit)(e)}>
    <strong>Formulario de {!selectedAdmin?.id ? 'Cadastro' : 'Edição'}</strong>
-   <Controller
-    render={({ field }) => (
-     <InputText
-      {...field}
-      data={{
-       type: 'text',
-       placeholder: 'Nome',
-       getInputValue(e) {
-        setValue('nome', e);
-       },
-       value: selectedAdmin?.nome,
-      }}
-      {...register('nome', {
-       required: {
-        value: true,
-        message: 'Error',
-       },
-      })}
-     />
-    )}
-    control={control}
-    name="nome"
-    defaultValue={selectedAdmin?.nome}
+
+   <InputText
+    data={{
+     type: 'text',
+     placeholder: 'Nome',
+     register: register('nome'),
+    }}
    />
-   <Controller
-    render={({ field }) => (
-     <InputText
-      {...field}
-      data={{
-       type: 'text',
-       placeholder: 'E-mail',
-       getInputValue(e) {
-        setValue('email', e);
-       },
-       value: selectedAdmin?.email,
-      }}
-      {...register('email', {
-       required: {
-        value: true,
-        message: 'Error',
-       },
-      })}
-     />
-    )}
-    control={control}
-    name="nome"
-    defaultValue=""
+
+   <InputText
+    data={{
+     type: 'email',
+     placeholder: 'E-mail',
+     register: register('email'),
+    }}
    />
-   <Controller
-    render={({ field }) => (
-     <InputText
-      {...field}
-      data={{
-       type: 'password',
-       placeholder: 'Senha',
-       getInputValue(e) {
-        setValue('senha', e);
-       },
-       value: selectedAdmin?.senha,
-      }}
-      {...register('senha', {
-       required: {
-        value: true,
-        message: 'Error',
-       },
-      })}
-     />
-    )}
-    control={control}
-    name="nome"
-    defaultValue=""
+   <InputText
+    data={{
+     type: 'password',
+     placeholder: 'Senha',
+     register: register('senha'),
+    }}
    />
-   <Controller
-    render={({ field }) => (
-     <InputText
-      {...field}
-      data={{
-       type: 'text',
-       placeholder: 'CPF',
-       getInputValue(e) {
-        setValue('cpf', e);
-       },
-       value: selectedAdmin?.cpf,
-      }}
-      {...register('cpf', {
-       required: {
-        value: true,
-        message: 'Error',
-       },
-      })}
-     />
-    )}
-    control={control}
-    name="nome"
-    defaultValue=""
+
+   <InputText
+    data={{
+     type: 'text',
+     placeholder: 'CPF',
+     register: register('cpf'),
+    }}
    />
-   <Controller
-    render={({ field }) => (
-     <InputText
-      {...field}
-      data={{
-       type: 'text',
-       placeholder: 'Telefone',
-       getInputValue(e) {
-        setValue('telefone', e);
-       },
-       value: selectedAdmin?.telefone,
-      }}
-      {...register('telefone', {
-       required: {
-        value: true,
-        message: 'Error',
-       },
-      })}
-     />
-    )}
-    control={control}
-    name="nome"
-    defaultValue=""
+
+   <InputText
+    data={{
+     type: 'text',
+     placeholder: 'Telefone',
+     register: register('telefone'),
+    }}
    />
-   <Controller
-    render={({ field }) => (
-     <InputText
-      {...field}
-      data={{
-       type: 'date',
-       placeholder: 'Data Nascimento',
-       getInputValue(e) {
-        setValue('data_nascimento', e);
-       },
-       value: selectedAdmin?.data_nascimento,
-      }}
-      {...register('data_nascimento', {
-       required: {
-        value: true,
-        message: 'Error',
-       },
-      })}
-     />
-    )}
-    control={control}
-    name="nome"
-    defaultValue=""
+
+   <InputText
+    data={{
+     type: 'date',
+     placeholder: 'Data Nascimento',
+     register: register('data_nascimento'),
+    }}
    />
 
    <ContainerFlex>
