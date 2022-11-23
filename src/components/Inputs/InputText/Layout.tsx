@@ -7,8 +7,8 @@ export function Layout({ data }: LayoutProps) {
    title={data.placeholder}
    type={data.type}
    placeholder={data.placeholder}
-   onChange={(e) => data.getInputValue(e.target.value)}
-   value={data.value}
+   // eslint-disable-next-line react/jsx-props-no-spreading
+   {...data.register}
   />
  );
 }
