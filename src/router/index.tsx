@@ -3,6 +3,7 @@ import { CartPage } from '../pages/CartPage';
 import { Checkout } from '../pages/Checkout';
 import { Dummy } from '../pages/Dummy';
 import { LandingPage } from '../pages/LandingPage';
+import { Login } from '../pages/Login';
 import { ProductDetails } from '../pages/ProductDetails';
 import { Users } from '../pages/Users';
 
@@ -13,6 +14,7 @@ export function Routers() {
     <Route index element={<LandingPage />} />
     <Route path="cart" element={<CartPage />} />
     <Route path="checkout" element={<Checkout />} />
+    <Route path="login" element={<Login />} />
     <Route path="produtos">
      <Route index element={<h1>Produtos</h1>} />
      <Route path=":id" element={<ProductDetails />} />
