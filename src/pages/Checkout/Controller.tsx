@@ -1,10 +1,10 @@
-import axios from 'axios';
 import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { useMutation } from 'react-query';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { PedidoProps } from '../../modules/FormPedido/type';
+import api from '../../services/api/AxiosConfig';
 import { useCartShop } from '../../services/context/ShopCart/hook';
 import { Layout } from './Layout';
 // import { useData } from './data';
@@ -28,7 +28,7 @@ export function Controller() {
 
  const onCreate = useMutation({
   mutationFn: (data: any) => {
-   return axios.post(`http://localhost:5000/pedido/`, data);
+   return api.post(`/pedido/`, data);
   },
   onMutate: () => {
    toast.loading('Finalizando compra..', {

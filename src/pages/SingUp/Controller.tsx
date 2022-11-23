@@ -1,8 +1,9 @@
-import axios, { AxiosError } from 'axios';
+import { AxiosError } from 'axios';
 import { useForm } from 'react-hook-form';
 import { useMutation } from 'react-query';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import api from '../../services/api/AxiosConfig';
 import { SingUpProps } from '../../services/types/SingUpProps';
 import { Layout } from './Layout';
 
@@ -16,7 +17,7 @@ export function Controller() {
 
  const onSingUp = useMutation({
   mutationFn: (data: SingUpProps) => {
-   return axios.post(`http://localhost:5000/cliente/`, data);
+   return api.post(`/cliente/`, data);
   },
   onMutate: () => {
    toast.loading('Cadastrando..', {

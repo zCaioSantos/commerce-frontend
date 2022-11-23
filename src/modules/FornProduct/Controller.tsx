@@ -1,8 +1,9 @@
-import axios, { AxiosError } from 'axios';
+import { AxiosError } from 'axios';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useMutation } from 'react-query';
 import { toast } from 'react-toastify';
+import api from '../../services/api/AxiosConfig';
 import queryClient from '../../services/api/queryClient';
 import { ProdutoProps } from '../../services/types/ProdutoProps';
 
@@ -24,7 +25,7 @@ export function Controller() {
 
  const onCreate = useMutation({
   mutationFn: (data: any) => {
-   return axios.post(`http://localhost:5000/produto/`, data);
+   return api.post(`/produto/`, data);
   },
   onMutate: () => {
    toast.loading('Cadastrando produtoc..', {

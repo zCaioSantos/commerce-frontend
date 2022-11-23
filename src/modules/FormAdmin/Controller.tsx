@@ -1,8 +1,8 @@
-import axios from 'axios';
 import { useForm } from 'react-hook-form';
 import { useMutation } from 'react-query';
 import { toast } from 'react-toastify';
 import { AdminProps } from '../../pages/Users/types';
+import api from '../../services/api/AxiosConfig';
 import queryClient from '../../services/api/queryClient';
 import { useInternalModal } from '../../services/hooks/Modals';
 
@@ -24,7 +24,7 @@ export function Controller({ data: selectedAdmin }: ControllerProps) {
 
  const onCreate = useMutation({
   mutationFn: (data: AdminProps) => {
-   return axios.post(`http://localhost:5000/admin/`, data);
+   return api.post(`/admin/`, data);
   },
   onMutate: () => {
    toast.loading('Ativando/desativando usuário..', {
@@ -55,7 +55,7 @@ export function Controller({ data: selectedAdmin }: ControllerProps) {
 
  const onEdit = useMutation({
   mutationFn: (data: AdminProps) => {
-   return axios.put(`http://localhost:5000/admin/${data.id}`, data);
+   return api.put(`/admin/${data.id}`, data);
   },
   onMutate: () => {
    toast.loading('Editando usuário..', {
