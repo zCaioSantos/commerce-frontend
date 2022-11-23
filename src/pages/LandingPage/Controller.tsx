@@ -1,13 +1,12 @@
-import axios from 'axios';
 import { useQuery } from 'react-query';
+import api from '../../services/api/AxiosConfig';
+import { ProdutoProps } from '../../services/types/ProdutoProps';
 import { ResponseProps } from '../../services/types/ResponseProps';
 import { Layout } from './Layout';
 
 export function Controller() {
  const { data, isFetched, isLoading } = useQuery(['getProducts'], async () => {
-  const response = await axios.get<ResponseProps>(
-   'http://localhost:5000/produto/'
-  );
+  const response = await api.get<ResponseProps<ProdutoProps[]>>('/produto/');
   return response;
  });
 

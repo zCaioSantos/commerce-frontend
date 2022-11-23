@@ -1,8 +1,9 @@
-import axios, { AxiosError } from 'axios';
+import { AxiosError } from 'axios';
 import { useForm } from 'react-hook-form';
 import { useMutation } from 'react-query';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import api from '../../services/api/AxiosConfig';
 import { useAuth } from '../../services/context/Auth/hook';
 import { LoginProps } from '../../services/types/LoginProps';
 import { Layout } from './Layout';
@@ -21,7 +22,7 @@ export function Controller() {
 
  const onAuth = useMutation({
   mutationFn: (data: LoginProps) => {
-   return axios.post(`http://localhost:5000/auth/`, data);
+   return api.post(`/auth/`, data);
   },
   onMutate: () => {
    toast.loading('Entrando..', {
