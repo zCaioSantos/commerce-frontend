@@ -6,7 +6,7 @@ export const mocks = {
   },
   {
    title: 'Cadastre-se',
-   route: '/register',
+   route: '/singup',
   },
  ],
 };
