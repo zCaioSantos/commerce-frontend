@@ -5,6 +5,7 @@ export interface ControllerProps {
   placeholder?: string;
   type: InputTypes;
   register?: UseFormRegisterReturn<any>;
+  disabled?: boolean;
  };
 }
 
