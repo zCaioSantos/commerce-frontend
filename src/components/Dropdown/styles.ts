@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Content = styled.div`
  position: absolute;
  overflow: hidden;
- z-index: 1;
+ z-index: 3;
 
  top: 61px;
  right: calc(50% - 90px);
@@ -65,7 +65,6 @@ export const Dropdown = styled.div`
   cursor: pointer;
 
   position: relative;
-  z-index: 2;
   transition: 0.3s;
 
   &:hover {
