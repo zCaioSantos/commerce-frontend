@@ -8,7 +8,7 @@ export function Controller() {
  const { id } = useParams();
 
  const { data, isFetched, isLoading } = useQuery(
-  ['getProductDetail'],
+  [`getProductDetail_${id}`],
   async () => {
    const response = await api.get<ProdutoProps>(`/produto/${id}`);
    return response.data;
