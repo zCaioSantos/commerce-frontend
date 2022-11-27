@@ -1,4 +1,5 @@
 import { createContext, useEffect, useState } from 'react';
+import { ProfileProps } from '../../types/ProfileProps';
 import {
  AuthContextData,
  AuthProps,
@@ -31,9 +32,17 @@ function AuthProvider({ children }: AuthProviderProps) {
  };
 
  const getUser = () => {
+  const userJson = window.localStorage.getItem('@user');
+  if (userJson) {
+   return JSON.parse(userJson);
+  }
   return user;
  };
  const getToken = () => {
+  const tokenJson = window.localStorage.getItem('@token');
+  if (tokenJson) {
+   return tokenJson;
+  }
   return token;
  };
 
@@ -44,10 +53,21 @@ function AuthProvider({ children }: AuthProviderProps) {
   localStorage.removeItem('@user');
  };
 
+ const updateUser = (userData: ProfileProps) => {
+  const userUpdate = {
+   id: user.id,
+   perfil: user.perfil,
+   nome: userData.nome,
+   email: userData.email,
+  };
+  setUser(userUpdate);
+  window.localStorage.setItem('@user', JSON.stringify(userUpdate));
+ };
+
  return (
   <AuthContext.Provider
    // eslint-disable-next-line react/jsx-no-constructed-context-values
-   value={{ onSingIn, getUser, onSingOut, getToken }}
+   value={{ onSingIn, getUser, onSingOut, getToken, updateUser }}
   >
    {children}
   </AuthContext.Provider>
