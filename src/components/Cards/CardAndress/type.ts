@@ -3,8 +3,8 @@ import { EnderecoProps } from '../../../services/types/EnderecoProps';
 
 export interface ControllerProps {
  data: {
-  andress: EnderecoProps;
-  register: UseFormRegisterReturn<'endereco_id'>;
+  andress?: EnderecoProps;
+  register?: UseFormRegisterReturn<'endereco_id'>;
  };
 }
 
