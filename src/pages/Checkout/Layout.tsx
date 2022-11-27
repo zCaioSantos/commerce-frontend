@@ -15,7 +15,7 @@ export function Layout({ data, isLoading }: LayoutProps) {
     <LeftContainer>
      <FormPedido data={data} />
      <Info className="top">
-      Valor dos Produtos:{' '}
+      Valor dos Produtos:
       <span>
        {getValueTotal().toLocaleString('pr-br', {
         style: 'currency',
@@ -24,18 +24,18 @@ export function Layout({ data, isLoading }: LayoutProps) {
       </span>
      </Info>
      <Info>
-      Valor do Frete:{' '}
+      Valor do Frete:
       <span>
-       {(20).toLocaleString('pr-br', {
+       {data.getFrete.toLocaleString('pr-br', {
         style: 'currency',
         currency: 'BRL',
        })}
       </span>
      </Info>
      <Info>
-      Valor total:{' '}
+      Valor total:
       <span>
-       {(getValueTotal() + 20).toLocaleString('pr-br', {
+       {(getValueTotal() + data.getFrete).toLocaleString('pr-br', {
         style: 'currency',
         currency: 'BRL',
        })}
