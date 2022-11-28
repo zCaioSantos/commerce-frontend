@@ -1,22 +1,22 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useMutation } from 'react-query';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { PedidoProps } from '../../modules/FormPedido/type';
 import api from '../../services/api/AxiosConfig';
+import { useAuth } from '../../services/context/Auth/hook';
 import { useCartShop } from '../../services/context/ShopCart/hook';
 import { Layout } from './Layout';
-// import { useData } from './data';
+
 export function Controller() {
  const { listCartProducts, getQuantityProducts, clearToCart } = useCartShop();
  const navigate = useNavigate();
+ const [frete, setFrete] = useState<number>(0);
+ const { getUser } = useAuth();
  const {
-  control,
   register,
   handleSubmit,
-  setValue,
-  getValues,
   formState: { errors },
  } = useForm<PedidoProps>();
 
@@ -28,7 +28,7 @@ export function Controller() {
 
  const onCreate = useMutation({
   mutationFn: (data: any) => {
-   return api.post(`/pedido/`, data);
+   return api.post(`/pedido/${getUser().id}`, data);
   },
   onMutate: () => {
    toast.loading('Finalizando compra..', {
@@ -60,8 +60,6 @@ export function Controller() {
  const onSubmit = (dataPedido: PedidoProps) => {
   const dataSubmit = {
    ...dataPedido,
-   cliente_id: 4,
-   valor_frete: 20,
    lista_produtos: [...listCartProducts],
   };
   onCreate.mutate(dataSubmit);
@@ -69,14 +67,13 @@ export function Controller() {
 
  const data = {
   hookForm: {
-   control,
    register,
    handleSubmit,
    onSubmit: (dataPedido: PedidoProps) => onSubmit(dataPedido),
    errors,
-   setValue,
-   getValues,
   },
+  setFrete,
+  getFrete: frete,
  };
 
  return <Layout data={data} isLoading={onCreate.isLoading} />;

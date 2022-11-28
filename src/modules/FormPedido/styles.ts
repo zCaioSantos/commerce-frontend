@@ -29,3 +29,23 @@ export const Title = styled.legend`
  color: #2b3445;
  margin-bottom: 0.5rem;
 `;
+
+export const WarnAndress = styled.div`
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+ gap: 1rem;
+
+ > strong {
+  font-weight: 400;
+  font-size: 16px;
+  text-align: center;
+  color: #2b3445;
+  margin-bottom: 0.5rem;
+ }
+
+ > button {
+  max-width: 18.75rem;
+ }
+`;

@@ -24,6 +24,7 @@ export interface LayoutProps {
    onSubmit: (data: AdminProps) => void;
    setValue: UseFormSetValue<AdminProps>;
    getValues: UseFormGetValues<AdminProps>;
+   isLoading: boolean;
   };
  };
  selectedAdmin?: AdminProps | undefined;

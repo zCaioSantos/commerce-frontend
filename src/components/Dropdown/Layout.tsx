@@ -15,11 +15,11 @@ export function Layout() {
  return (
   <Dropdown>
    <button type="button">
-    <span>{getUser().nome}</span>
+    <span>Olá, {getUser().nome}</span>
     <BsCaretDownFill />
    </button>
    <Content>
-    <button type="button">
+    <button type="button" onClick={() => navigate('/profile')}>
      <BsPersonFill />
      <span>Meu Perfil</span>
     </button>

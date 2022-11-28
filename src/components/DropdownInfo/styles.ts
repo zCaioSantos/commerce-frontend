@@ -3,23 +3,27 @@ import styled from 'styled-components';
 export const Content = styled.div`
  position: absolute;
  overflow: hidden;
- z-index: 3;
+ z-index: 5;
 
- top: 61px;
+ &.visible {
+  opacity: 1;
+  visibility: visible;
+ }
+
+ top: 80px;
  right: calc(50% - 90px);
 
  width: 190px;
  opacity: 0;
  visibility: hidden;
 
- border-bottom-left-radius: 6px;
- border-bottom-right-radius: 6px;
-
  border-top: 0;
- background: #000;
+ background: white;
 
  translate: 0 -25px;
  transition: 0.4s;
+ -webkit-box-shadow: 5px 5px 15px 0px rgba(0, 0, 0, 0.25);
+ box-shadow: 5px 5px 15px 0px rgba(0, 0, 0, 0.25);
 
  > button {
   display: flex;
@@ -29,16 +33,12 @@ export const Content = styled.div`
   font-size: 16px;
   width: 100%;
   height: 56px;
-  background-color: #000;
+  background-color: transparent;
   cursor: pointer;
-  color: white;
+  color: #101010;
 
   &:hover {
    color: #f79f7c;
-  }
-
-  &.hidden {
-   display: none;
   }
  }
 `;
@@ -53,6 +53,10 @@ export const Dropdown = styled.div`
  }
 
  > button {
+  width: 2.1875rem;
+  height: 2.1875rem;
+  border-radius: 100%;
+
   font-size: 16px;
   display: flex;
   align-items: center;
@@ -60,8 +64,8 @@ export const Dropdown = styled.div`
 
   gap: 10px;
 
-  color: #f9f9f9;
-  background-color: transparent;
+  color: #464646;
+  background-color: #e9e9e9;
   cursor: pointer;
 
   position: relative;

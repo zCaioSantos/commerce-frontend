@@ -1,3 +1,5 @@
+import { ProfileProps } from '../../types/ProfileProps';
+
 export interface AuthProviderProps {
  children: React.ReactNode;
 }
@@ -7,6 +9,7 @@ export interface AuthContextData {
  onSingOut: () => void;
  getUser: () => AuthUserProps;
  getToken: () => string;
+ updateUser: (userData: ProfileProps) => void;
 }
 
 export type AuthProps = {

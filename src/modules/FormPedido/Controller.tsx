@@ -9,7 +9,7 @@ import { ControllerProps } from './type';
 export function Controller({ data }: ControllerProps) {
  const { getUser } = useAuth();
  const {
-  data: ListAndress,
+  data: listAndress,
   isFetched,
   isLoading,
  } = useQuery(['getAndressClient'], () => {
@@ -22,8 +22,8 @@ export function Controller({ data }: ControllerProps) {
  return (
   <Layout
    data={data}
-   ListAndress={{
-    response: ListAndress?.data,
+   listAndress={{
+    response: listAndress?.data,
     isFetched,
     isLoading,
    }}

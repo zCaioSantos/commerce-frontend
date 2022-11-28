@@ -9,6 +9,7 @@ import { Dummy } from '../pages/Dummy';
 import { LandingPage } from '../pages/LandingPage';
 import { Login } from '../pages/Login';
 import { ProductDetails } from '../pages/ProductDetails';
+import { Profile } from '../pages/Profile';
 import { SingUp } from '../pages/SingUp';
 import { Users } from '../pages/Users';
 
@@ -26,11 +27,11 @@ export function Routers() {
      <Route path=":id" element={<ProductDetails />} />
     </Route>
    </Route>
-
-   <Route element={<ProtectedRoute />}>
+   <Route path="/" element={<ProtectedRoute />}>
     <Route path="checkout" element={<Checkout />} />
+    <Route path="profile" element={<Profile />} />
 
-    <Route path="/dashboard">
+    <Route path="dashboard">
      <Route element={<ProtectedAdmin />}>
       <Route path="users" element={<Users />} />
      </Route>

@@ -6,7 +6,7 @@ import { LayoutProps } from './types';
 
 export function Layout({
  data: {
-  hookForm: { register, handleSubmit, onSubmit },
+  hookForm: { register, handleSubmit, onSubmit, isLoading },
  },
  selectedAdmin,
 }: LayoutProps) {
@@ -87,6 +87,7 @@ export function Layout({
     data={{
      title: !selectedAdmin?.id ? 'Cadastrar' : 'Salvar',
      type: 'submit',
+     disabled: isLoading,
     }}
    />
   </ContainerForm>
