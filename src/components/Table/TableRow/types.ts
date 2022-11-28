@@ -1,4 +1,3 @@
-import { AdminProps } from '../../../pages/Users/types';
 import { ColumnsProps } from '../../../services/types/ColumnProps';
 
 export interface ControllerProps {
@@ -6,7 +5,7 @@ export interface ControllerProps {
   columns: ColumnsProps[];
   content: DataList;
   onDelete: (id: any) => void;
-  onEdit: (dataAdmin: AdminProps) => void;
+  onEdit: (data: any) => void;
  };
 }
 
