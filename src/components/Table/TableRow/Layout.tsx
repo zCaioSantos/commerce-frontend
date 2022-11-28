@@ -1,9 +1,11 @@
 import { BsPencilSquare, BsRecordFill } from 'react-icons/bs';
+import { useAuth } from '../../../services/context/Auth/hook';
 import { Button, Options, Row, Slider, Stauts, Switch } from './styles';
 import { LayoutProps } from './types';
 
 export function Layout({ data }: LayoutProps) {
  const { id } = data.content;
+ const { getUser } = useAuth();
 
  return (
   <Row>
@@ -20,11 +22,13 @@ export function Layout({ data }: LayoutProps) {
 
    <td>
     <Options>
-     <Button onClick={() => data.onDelete(id)}>
-      <Switch>
-       <Slider className={data.content.status ? 'enable' : ''} />
-      </Switch>
-     </Button>
+     {getUser().perfil !== 'estoquista' && (
+      <Button onClick={() => data.onDelete(id)}>
+       <Switch>
+        <Slider className={data.content.status ? 'enable' : ''} />
+       </Switch>
+      </Button>
+     )}
      <Button onClick={() => data.onEdit(data.content)}>
       <BsPencilSquare />
      </Button>
