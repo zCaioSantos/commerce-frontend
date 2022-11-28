@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { RingLoader } from 'react-spinners';
 import { Button } from '../../components/Button';
 import { StepperInput } from '../../components/Inputs/StepperInput';
@@ -24,6 +24,12 @@ import { LayoutProps } from './type';
 export function Layout({ data }: LayoutProps) {
  const { onAddToCart } = useCartShop();
  const [quantidade, setQuantidade] = useState(1);
+ const [capa, setCapa] = useState('');
+
+ useEffect(() => {
+  setCapa(String(data.response?.imagens[0].url));
+ }, [data.response?.imagens]);
+
  return (
   <Container>
    <TopHeader />
@@ -34,13 +40,13 @@ export function Layout({ data }: LayoutProps) {
       <ImagemContainer>
        <Capa>
         <img
-         src={`/src/assets/images/${String(data.response?.imagens[0].url)}`}
+         src={`/src/assets/images/${capa}`}
          alt={`Imagem do Produto ${data.response?.nome}`}
         />
        </Capa>
        <ImagemList>
         {data.response?.imagens.map((image) => (
-         <li key={image.imagem_id}>
+         <li key={image.imagem_id} onClick={() => setCapa(image.url)}>
           <img
            src={`/src/assets/images/${image.url}`}
            alt={`Imagem do Produto ${data.response?.nome}`}
@@ -74,6 +80,7 @@ export function Layout({ data }: LayoutProps) {
           onClick: () => {
            onAddToCart({ ...data.response, quantidade });
           },
+          disabled: data.response?.estoque === 0,
          }}
         />
        </OptionContainer>

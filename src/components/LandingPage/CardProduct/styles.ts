@@ -25,13 +25,16 @@ export const Image = styled.div`
 `;
 
 export const Content = styled.div`
+ flex: 1;
  width: 100%;
  padding: 1.125rem 1rem;
 
  display: flex;
  align-items: center;
- justify-content: center;
+ justify-content: space-between;
  flex-direction: column;
+
+ text-align: center;
 
  > button {
   width: 193.19px;

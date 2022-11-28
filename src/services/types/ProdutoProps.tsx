@@ -1,7 +1,7 @@
 import { ImagemProps } from './ImagemProps';
 
 export type ProdutoProps = {
- produto_id: number;
+ id: number;
  nome: string;
  descricao: string;
  avaliacao: string;

@@ -5,35 +5,39 @@ import { useMutation } from 'react-query';
 import { toast } from 'react-toastify';
 import api from '../../services/api/AxiosConfig';
 import queryClient from '../../services/api/queryClient';
+import { useInternalModal } from '../../services/hooks/Modals';
 import { ProdutoProps } from '../../services/types/ProdutoProps';
 
 import { Layout } from './Layout';
+import { ControllerProps } from './types';
 
-export function Controller() {
- //  const { handleCloseModal } = useInternalModal();
-
+export function Controller({ data: product }: ControllerProps) {
+ const { handleCloseModal } = useInternalModal();
  const [img, setImg] = useState<File>();
 
  const {
-  control,
   register,
   handleSubmit,
-  setValue,
-  getValues,
   formState: { errors },
- } = useForm<ProdutoProps>();
+ } = useForm<ProdutoProps>({
+  defaultValues: product?.selectProduct,
+ });
 
  const onCreate = useMutation({
   mutationFn: (data: any) => {
-   return api.post(`/produto/`, data);
+   return api.post(`/produto/`, data, {
+    headers: {
+     'Content-Type': 'multipart/form-data',
+    },
+   });
   },
   onMutate: () => {
-   toast.loading('Cadastrando produtoc..', {
+   toast.loading('Cadastrando produto..', {
     toastId: 'onCreateProduct',
    });
   },
   onSuccess: () => {
-   queryClient.invalidateQueries('getProduto');
+   queryClient.invalidateQueries('getProducts');
    toast.update('onCreateProduct', {
     render: 'Produto criado com sucesso!',
     type: 'success',
@@ -41,10 +45,46 @@ export function Controller() {
     autoClose: 5000,
     closeOnClick: true,
    });
+   handleCloseModal();
   },
   onError: (error: AxiosError) => {
-   toast.update('onCreateAdmin', {
+   toast.update('onCreateProduct', {
     render: error.message,
+    type: 'error',
+    isLoading: false,
+    autoClose: 5000,
+    closeOnClick: true,
+   });
+  },
+ });
+
+ const onEdit = useMutation({
+  mutationFn: (data: any) => {
+   return api.put(`/produto/${product?.selectProduct?.id}`, data, {
+    headers: {
+     'Content-Type': 'multipart/form-data',
+    },
+   });
+  },
+  onMutate: () => {
+   toast.loading('Editando produto..', {
+    toastId: 'onEditProduct',
+   });
+  },
+  onSuccess: () => {
+   queryClient.invalidateQueries('getProducts');
+   toast.update('onEditProduct', {
+    render: 'Produto editado com sucesso!',
+    type: 'success',
+    isLoading: false,
+    autoClose: 5000,
+    closeOnClick: true,
+   });
+   handleCloseModal();
+  },
+  onError: () => {
+   toast.update('onEditProduct', {
+    render: 'Falha ao tentar editar esse produto',
     type: 'error',
     isLoading: false,
     autoClose: 5000,
@@ -55,22 +95,31 @@ export function Controller() {
 
  const onSubmit = (dataProduct: ProdutoProps) => {
   const formData = new FormData();
-  formData.append('produto', JSON.stringify(dataProduct));
   formData.append('file', img);
-  onCreate.mutate(formData);
+  formData.append('produto', JSON.stringify(dataProduct));
+
+  if (!dataProduct?.id) {
+   onCreate.mutate(formData);
+  } else {
+   onEdit.mutate(formData);
+  }
  };
 
  const data = {
   hookForm: {
-   control,
    register,
    handleSubmit,
    onSubmit: (dataProduct: ProdutoProps) => onSubmit(dataProduct),
    errors,
-   setValue,
-   getValues,
+   isLoading: onEdit.isLoading || onCreate.isLoading,
   },
  };
 
- return <Layout data={data} onSetImg={setImg} />;
+ return (
+  <Layout
+   data={data}
+   onSetImg={setImg}
+   selectProduct={product?.selectProduct}
+  />
+ );
 }

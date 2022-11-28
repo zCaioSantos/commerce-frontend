@@ -4,9 +4,6 @@ import { toast } from 'react-toastify';
 
 const api = axios.create({
  baseURL: 'http://localhost:5000/',
- headers: {
-  'Content-Type': 'application/json',
- },
 });
 
 api.interceptors.request.use(
