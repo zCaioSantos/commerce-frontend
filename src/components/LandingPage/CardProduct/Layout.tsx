@@ -10,16 +10,14 @@ export function Layout({ data }: LayotProps) {
  const navigate = useNavigate();
  return (
   <CardContainer>
-   <Image onClick={() => navigate(`/produtos/${data.produto_id}`)}>
+   <Image onClick={() => navigate(`/produtos/${data.id}`)}>
     <img
      src={`src/assets/images/${String(data.imagens[0].url)}`}
      alt={`product ${data.nome}`}
     />
    </Image>
    <Content>
-    <Title onClick={() => navigate(`/produtos/${data.produto_id}`)}>
-     {data.nome}
-    </Title>
+    <Title onClick={() => navigate(`/produtos/${data.id}`)}>{data.nome}</Title>
     <Price>
      {data.preco.toLocaleString('pr-br', {
       style: 'currency',
