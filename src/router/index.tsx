@@ -5,10 +5,10 @@ import { ProtectedRoute } from '../Layouts/ProtectedLayout/ProtectedRoute';
 
 import { CartPage } from '../pages/CartPage';
 import { Checkout } from '../pages/Checkout';
-import { Dummy } from '../pages/Dummy';
 import { LandingPage } from '../pages/LandingPage';
 import { Login } from '../pages/Login';
 import { ProductDetails } from '../pages/ProductDetails';
+import { Products } from '../pages/Products';
 import { Profile } from '../pages/Profile';
 import { SingUp } from '../pages/SingUp';
 import { Users } from '../pages/Users';
@@ -36,7 +36,7 @@ export function Routers() {
       <Route path="users" element={<Users />} />
      </Route>
      <Route element={<ProtectedEstoquista />}>
-      <Route path="products" element={<Dummy />} />
+      <Route path="products" element={<Products />} />
      </Route>
     </Route>
    </Route>
