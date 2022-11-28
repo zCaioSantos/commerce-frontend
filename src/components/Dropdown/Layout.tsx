@@ -23,7 +23,7 @@ export function Layout() {
      <BsPersonFill />
      <span>Meu Perfil</span>
     </button>
-    <button type="button">
+    <button type="button" onClick={() => navigate('/requests')}>
      <BsList />
      <span>Meus Pedidos</span>
     </button>
