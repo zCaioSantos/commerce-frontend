@@ -8,14 +8,15 @@ import { LayoutProps } from './types';
 
 export function Layout({
  data: {
-  hookForm: { register, handleSubmit, onSubmit },
+  hookForm: { register, handleSubmit, onSubmit, isLoading },
  },
+ selectProduct,
  onSetImg,
 }: LayoutProps) {
  const [listaImgs, setListaImgs] = useState<File[]>([]);
  return (
   <ContainerForm onSubmit={(e) => handleSubmit(onSubmit)(e)}>
-   <strong>Formulario de </strong>
+   <strong>Formulario de {!selectProduct?.id ? 'Cadastro' : 'Edição'}</strong>
 
    <InputText
     data={{
@@ -79,8 +80,9 @@ export function Layout({
 
    <Button
     data={{
-     title: 'Cadastrar',
+     title: !selectProduct?.id ? 'Cadastrar' : 'Salvar',
      type: 'submit',
+     disabled: isLoading,
     }}
    />
   </ContainerForm>
