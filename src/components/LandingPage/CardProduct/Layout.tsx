@@ -29,6 +29,7 @@ export function Layout({ data }: LayotProps) {
       title: 'Adicionar',
       type: 'button',
       onClick: () => onAddToCart({ ...data, quantidade: 1 }),
+      disabled: data.estoque === 0,
      }}
     />
    </Content>
