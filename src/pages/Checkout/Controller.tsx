@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { PedidoProps } from '../../modules/FormPedido/type';
 import api from '../../services/api/AxiosConfig';
+import queryClient from '../../services/api/queryClient';
 import { useAuth } from '../../services/context/Auth/hook';
 import { useCartShop } from '../../services/context/ShopCart/hook';
 import { Layout } from './Layout';
@@ -43,8 +44,9 @@ export function Controller() {
     autoClose: 5000,
     closeOnClick: true,
    });
+   queryClient.invalidateQueries('getRequests');
    clearToCart();
-   navigate('/');
+   navigate('/requests');
   },
   onError: () => {
    toast.update('onCreatePedido', {

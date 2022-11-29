@@ -18,13 +18,13 @@ export function Layout({ data }: LayoutProps) {
  return (
   <Container>
    <LeftContainer>
-    <Image onClick={() => navigate(`/produtos/${data.produto_id}`)}>
+    <Image onClick={() => navigate(`/produtos/${data.id}`)}>
      <img
       src={`/src/assets/images/${data.imagens[0].url}`}
       alt={`Imagem do produto: ${data.nome}`}
      />
     </Image>
-    <InfoContainer onClick={() => navigate(`/produtos/${data.produto_id}`)}>
+    <InfoContainer onClick={() => navigate(`/produtos/${data.id}`)}>
      <Title>{data.nome}</Title>
      <Price>
       {data.preco.toLocaleString('pr-br', {
@@ -37,7 +37,7 @@ export function Layout({ data }: LayoutProps) {
    <CustomStepper>
     <button
      type="button"
-     onClick={() => onDecrease(data.produto_id)}
+     onClick={() => onDecrease(data.id)}
      disabled={data.quantidade <= 1}
     >
      -
@@ -45,7 +45,7 @@ export function Layout({ data }: LayoutProps) {
     <span>{data.quantidade}</span>
     <button
      type="button"
-     onClick={() => onIncrease(data.produto_id)}
+     onClick={() => onIncrease(data.id)}
      disabled={data.quantidade === data.estoque}
     >
      +
@@ -53,7 +53,7 @@ export function Layout({ data }: LayoutProps) {
     <button
      type="button"
      className="trash"
-     onClick={() => onRemoveToCart(data.produto_id)}
+     onClick={() => onRemoveToCart(data.id)}
     >
      <BsTrashFill />
     </button>

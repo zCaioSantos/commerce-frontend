@@ -4,7 +4,7 @@ export type ProdutoProps = {
  id: number;
  nome: string;
  descricao: string;
- avaliacao: string;
+ avaliacao: number;
  preco: number;
  estoque: number;
  status: boolean;
