@@ -22,13 +22,13 @@ function ShopCartProvider({ children }: ShopCartProviderProps) {
    let qtd = 0;
 
    old.forEach((produtoList) => {
-    if (produtoList.produto_id === produto.produto_id) {
+    if (produtoList.id === produto.id) {
      qtd = produtoList.quantidade;
     }
    });
 
-   const filteredProductsToCard = listCartProducts.filter(
-    (produtoRemove) => produtoRemove.produto_id !== produto.produto_id
+   const filteredProductsToCard = old.filter(
+    (produtoRemove) => produtoRemove.id !== produto.id
    );
 
    const newCart = [
@@ -40,13 +40,14 @@ function ShopCartProvider({ children }: ShopCartProviderProps) {
    toast.success('Produto Acionado ao carrinho!', {
     autoClose: 1500,
    });
+
    return newCart;
   });
  };
 
  const onRemoveToCart = (id: number) => {
   const filteredProductsToCard = listCartProducts.filter(
-   (produto) => produto.produto_id !== id
+   (produto) => produto.id !== id
   );
   setListCartProducts(filteredProductsToCard);
   window.localStorage.setItem(
@@ -59,7 +60,7 @@ function ShopCartProvider({ children }: ShopCartProviderProps) {
   const produtos = [...listCartProducts];
 
   produtos.forEach((produto) => {
-   if (produto.produto_id === id) {
+   if (produto.id === id) {
     // eslint-disable-next-line no-param-reassign
     produto.quantidade += 1;
     setListCartProducts(produtos);
@@ -72,7 +73,7 @@ function ShopCartProvider({ children }: ShopCartProviderProps) {
   const produtos = [...listCartProducts];
 
   produtos.forEach((produto) => {
-   if (produto.produto_id === id) {
+   if (produto.id === id) {
     if (produto.quantidade > 1) {
      // eslint-disable-next-line no-param-reassign
      produto.quantidade -= 1;
