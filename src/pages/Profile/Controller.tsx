@@ -7,7 +7,7 @@ import { Layout } from './Layout';
 export function Controller() {
  const { getUser } = useAuth();
 
- const { data, isLoading } = useQuery(['getProfile'], () => {
+ const { data, isLoading } = useQuery([`getProfile_${getUser().id}`], () => {
   const response = api.get<ProfileProps>(`/cliente/${getUser().id}`);
   return response;
  });

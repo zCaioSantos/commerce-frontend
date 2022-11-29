@@ -44,7 +44,7 @@ export function Controller() {
     autoClose: 5000,
     closeOnClick: true,
    });
-   queryClient.invalidateQueries('getRequests');
+   queryClient.invalidateQueries(`getRequests_${getUser().id}`);
    clearToCart();
    navigate('/requests');
   },

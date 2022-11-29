@@ -9,12 +9,16 @@ export function Layout({ data }: LayoutProps) {
    <Content>
     <Title>Meus Pedidos</Title>
     {data.isLoading && <strong>Carregando..</strong>}
-    {!data.isLoading && (
-     <RequestList>
-      {data.response?.content.map((pedido) => (
-       <CardInfoRequest key={pedido.id} data={pedido} />
-      ))}
-     </RequestList>
+    {!data.isLoading && data.response?.content === null ? (
+     <strong>Você não tem nenhum pedido no momento.</strong>
+    ) : (
+     data.response?.content && (
+      <RequestList>
+       {data.response?.content.map((pedido) => (
+        <CardInfoRequest key={pedido.id} data={pedido} />
+       ))}
+      </RequestList>
+     )
     )}
    </Content>
   </LandingPageLayout>
