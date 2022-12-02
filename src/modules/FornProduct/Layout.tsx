@@ -5,12 +5,12 @@ import { Button } from '../../components/Button';
 import { CardImageSmall } from '../../components/Cards/CardImageSmall';
 import { InputText } from '../../components/Inputs/InputText';
 import { useAuth } from '../../services/context/Auth/hook';
-import { ContainerForm, InputFileContainer } from './style';
+import { ContainerForm, ErrrorMessage, InputFileContainer } from './style';
 import { LayoutProps } from './types';
 
 export function Layout({
  data: {
-  hookForm: { register, handleSubmit, onSubmit, isLoading },
+  hookForm: { register, handleSubmit, onSubmit, isLoading, errors },
  },
  selectProduct,
  onSetImg,
@@ -26,45 +26,80 @@ export function Layout({
     data={{
      type: 'text',
      placeholder: 'Nome',
-     register: register('nome'),
+     register: register('nome', {
+      required: {
+       value: true,
+       message: 'Informe um nome do produto.',
+      },
+     }),
      disabled: getUser().perfil === 'estoquista',
     }}
    />
+
+   <ErrrorMessage>{errors.nome?.message}</ErrrorMessage>
 
    <InputText
     data={{
      type: 'text',
      placeholder: 'Descrição',
-     register: register('descricao'),
+     register: register('descricao', {
+      required: {
+       value: true,
+       message: 'Informe a descrição do produto.',
+      },
+     }),
      disabled: getUser().perfil === 'estoquista',
     }}
    />
+
+   <ErrrorMessage>{errors.descricao?.message}</ErrrorMessage>
 
    <InputText
     data={{
      type: 'text',
      placeholder: 'Avaliação',
-     register: register('avaliacao'),
+     register: register('avaliacao', {
+      required: {
+       value: true,
+       message: 'Avaliação do produto.',
+      },
+     }),
      disabled: getUser().perfil === 'estoquista',
     }}
    />
+
+   <ErrrorMessage>{errors.avaliacao?.message}</ErrrorMessage>
 
    <InputText
     data={{
      type: 'text',
      placeholder: 'Estoque',
-     register: register('estoque'),
+     register: register('estoque', {
+      required: {
+       value: true,
+       message: 'Informe a quantidade no estoque.',
+      },
+     }),
     }}
    />
+
+   <ErrrorMessage>{errors.estoque?.message}</ErrrorMessage>
 
    <InputText
     data={{
      type: 'text',
      placeholder: 'Preço',
-     register: register('preco'),
+     register: register('preco', {
+      required: {
+       value: true,
+       message: 'Informe o preço do produto.',
+      },
+     }),
      disabled: getUser().perfil === 'estoquista',
     }}
    />
+
+   <ErrrorMessage>{errors.preco?.message}</ErrrorMessage>
 
    {getUser().perfil !== 'estoquista' && (
     <InputFileContainer>
