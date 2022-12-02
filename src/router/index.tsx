@@ -11,6 +11,7 @@ import { ProductDetails } from '../pages/ProductDetails';
 import { Products } from '../pages/Products';
 import { Profile } from '../pages/Profile';
 import { Requests } from '../pages/Requests';
+import { RequestsDashboard } from '../pages/RequestsDashboard';
 import { SingUp } from '../pages/SingUp';
 import { Users } from '../pages/Users';
 
@@ -31,7 +32,7 @@ export function Routers() {
    <Route path="/" element={<ProtectedRoute />}>
     <Route path="checkout" element={<Checkout />} />
     <Route path="profile" element={<Profile />} />
-    <Route path="requests" element={<Requests />} />
+    <Route path="my-requests" element={<Requests />} />
 
     <Route path="dashboard">
      <Route element={<ProtectedAdmin />}>
@@ -39,6 +40,7 @@ export function Routers() {
      </Route>
      <Route element={<ProtectedEstoquista />}>
       <Route path="products" element={<Products />} />
+      <Route path="requests" element={<RequestsDashboard />} />
      </Route>
     </Route>
    </Route>

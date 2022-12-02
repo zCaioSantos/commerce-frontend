@@ -41,7 +41,6 @@ export function Controller() {
    navigate('/');
   },
   onError: (response: AxiosError) => {
-   console.log(response);
    toast.update('onAuth', {
     render: `${response.response?.data}`,
     type: 'error',

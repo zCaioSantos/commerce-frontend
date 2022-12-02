@@ -46,7 +46,7 @@ export function Controller() {
    });
    queryClient.invalidateQueries(`getRequests_${getUser().id}`);
    clearToCart();
-   navigate('/requests');
+   navigate('/my-requests');
   },
   onError: () => {
    toast.update('onCreatePedido', {
