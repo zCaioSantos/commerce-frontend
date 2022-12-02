@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { BsImage } from 'react-icons/bs';
 import { Button } from '../../components/Button';
+import { CardImageSmall } from '../../components/Cards/CardImageSmall';
 import { InputText } from '../../components/Inputs/InputText';
 import { useAuth } from '../../services/context/Auth/hook';
 import { ContainerForm, InputFileContainer } from './style';
@@ -16,6 +17,7 @@ export function Layout({
 }: LayoutProps) {
  const [listaImgs, setListaImgs] = useState<File[]>([]);
  const { getUser } = useAuth();
+
  return (
   <ContainerForm onSubmit={(e) => handleSubmit(onSubmit)(e)}>
    <strong>Formulario de {!selectProduct?.id ? 'Cadastro' : 'Edição'}</strong>
@@ -85,6 +87,10 @@ export function Layout({
       )}
      </label>
     </InputFileContainer>
+   )}
+
+   {getUser().perfil !== 'estoquista' && (
+    <CardImageSmall data={selectProduct?.imagens} />
    )}
 
    <Button
