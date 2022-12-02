@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { BsStarFill } from 'react-icons/bs';
 import { RingLoader } from 'react-spinners';
 import { Button } from '../../components/Button';
 import { StepperInput } from '../../components/Inputs/StepperInput';
@@ -18,6 +19,7 @@ import {
  NameCommerce,
  OptionContainer,
  Price,
+ Star,
 } from './styles';
 import { LayoutProps } from './type';
 
@@ -46,7 +48,11 @@ export function Layout({ data }: LayoutProps) {
        </Capa>
        <ImagemList>
         {data.response?.imagens.map((image) => (
-         <li key={image.imagem_id} onClick={() => setCapa(image.url)}>
+         <li
+          key={image.imagem_id}
+          onClick={() => setCapa(image.url)}
+          className={capa === image.url ? 'select' : ''}
+         >
           <img
            src={`/src/assets/images/${image.url}`}
            alt={`Imagem do Produto ${data.response?.nome}`}
@@ -59,6 +65,10 @@ export function Layout({ data }: LayoutProps) {
        <NameCommerce>Commerce Company</NameCommerce>
        <Name>{data.response?.nome}</Name>
        <Description>{data.response?.descricao}</Description>
+       <Star>
+        <BsStarFill color="#ffaf88" size={25} />
+        <p>{data.response?.avaliacao}</p>
+       </Star>
        <Price>
         {(data.response?.preco).toLocaleString('pr-br', {
          style: 'currency',

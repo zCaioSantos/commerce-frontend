@@ -40,6 +40,24 @@ export const ImagemList = styled.ul`
    width: 100%;
    object-fit: cover;
   }
+
+  &.select {
+   border-bottom: 1px solid #f79f7c;
+  }
+ }
+`;
+
+export const Star = styled.div`
+ display: flex;
+ align-items: center;
+ gap: 0.25rem;
+ margin-bottom: 25px;
+
+ > p {
+  font-family: 'Lato';
+  font-size: 1rem;
+  line-height: 0;
+  font-weight: 600;
  }
 `;
 

@@ -34,7 +34,9 @@ export function Layout({
         <Row>
          <td>{request.id}</td>
          <td>{request.cliente}</td>
-         <td>{request.data}</td>
+         <td>
+          {new Intl.DateTimeFormat('pt-BR').format(new Date(request.data))}
+         </td>
          <td>{request.valor_total}</td>
          <td>{request.status_pedido}</td>
          <td>

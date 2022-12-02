@@ -13,7 +13,7 @@ import { ControllerProps } from './types';
 
 export function Controller({ data: product }: ControllerProps) {
  const { handleCloseModal } = useInternalModal();
- const [img, setImg] = useState<File>();
+ const [img, setImg] = useState<File[]>();
 
  const {
   register,
@@ -95,7 +95,10 @@ export function Controller({ data: product }: ControllerProps) {
 
  const onSubmit = (dataProduct: ProdutoProps) => {
   const formData = new FormData();
-  formData.append('file', img);
+
+  for (let i = 0; i < img.length; i++) {
+   formData.append('file', img[i]);
+  }
   formData.append('produto', JSON.stringify(dataProduct));
 
   if (!dataProduct?.id) {
