@@ -12,7 +12,7 @@ export function Layout({ data }: LayotProps) {
   <CardContainer>
    <Image onClick={() => navigate(`/produtos/${data.id}`)}>
     <img
-     src={`src/assets/images/${String(data.imagens[0].url)}`}
+     src={`src/assets/images/${String(data.imagens[0]?.url)}`}
      alt={`product ${data.nome}`}
     />
    </Image>
