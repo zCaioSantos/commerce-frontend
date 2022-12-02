@@ -73,18 +73,19 @@ export function Layout({
       Clique para escolher a imagem do produto
       <input
        onChange={(e) => {
-        setListaImgs([e.target.files[0]]), onSetImg(e.target.files[0]);
+        setListaImgs([...e.target.files]), onSetImg([...e.target.files]);
        }}
        id="image"
-       accept="image/png"
+       accept="image/*"
        type="file"
+       multiple
        disabled={getUser().perfil === 'estoquista'}
       />
-      {listaImgs.length > 0 && (
+      {listaImgs.map((img) => (
        <span>
-        <b>Imagem selecionada:</b> {listaImgs[0].name}
+        <b>Imagem selecionada:</b> {img.name}
        </span>
-      )}
+      ))}
      </label>
     </InputFileContainer>
    )}
